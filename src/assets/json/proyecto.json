@@ -1,0 +1,139 @@
+{
+    "nombre": "Cintia Lorena",
+    "apellido": "Necol",
+    "acerca": "Profesional, responsable y eficiente. Tengo amplias habilidades en comunicacion oral y de trabajo en equipo, asi como tambien poseo una capacidad de aprendizaje veloz. Soy desarrolladora de software con experiencia en aplicaciones web. Deseo formar parte de proyectos funcionales que superen las expectativas de los clientes de la empresa.", 
+    
+    "experiencia": [
+         {
+           "id": 1,
+           "atencion": "-Atencion en el manejo de maquinas de coser, sus utilidades y funciones para su cuidado y conservacion en Secchi Maquinas de Coser y Merceria. Desde 2013 a la actualidad."
+         },
+
+         {
+           "id": 2,
+           "venta": "-Ventas y Atencion al publico en Secchi Maquinas de Coser y Merceria. Desde 2010|a la actualidad."
+         },
+
+         {
+            "id": 3,
+            "manualidades": "-Dicto talleres de Costura,Bordados,Tejidos en Tricot y Crochet. Desde 2010 a la actualidad"
+         },
+
+         {
+            "capacitacion": "-Estoy capacitandome en #YoProgramo como Full Stack Developer jr. Comienzo 2022."
+         },
+
+         {
+            "analisis": "-Análisis de requerimientos y diseño de aplicaciones en GoCode. comienzo 2022."
+         }
+                 ],
+
+    "educacion": [
+         {
+          "id": 1,
+          "inicio": "Marzo de 1996",
+          "fin": "Diciembre de 2000",
+          "nivel1": "-Titulo Bachiller en Colegio Nacional N.1,Promocion 2000"
+         },
+         {
+            "id": 2,
+            "inicio": "Marzo de 2022",
+            "fin1": "Mayo de 2022",
+            "nivel2": "Se Programar",
+            "img1": "assets/img/APLogo-20-20.png"
+        },
+        {  
+            "id": 3,
+            "inicio": "Junio de 2022",
+            "fin2": "Enero de 2023",
+            "nivel3": "- Actualmente estoy estudiando en #YoProgramo, para ser programador web full-stack junior",
+            "img2": "assets/img/APLogo-20-20.png"
+        }
+                ],
+    "frase": "Full Stack Developer Jr",
+
+     "progresos": [
+     {
+      "id": 1,
+      "habilidad": "HTML",
+      "porcentaje": "90",
+      "color": "bg-danger"
+    },
+    {
+      "id": 2,
+      "habilidad": "HABILIDADES",
+      "porcentaje": "75",
+      "color": "bg-warning"
+    },
+    {
+      "id": 3,
+      "habilidad": "CSS",
+      "porcentaje": "80",
+      "color": "bg-info"
+    },
+    {
+      "id": 4,
+      "habilidad": "BOOSTRAP",
+      "porcentaje": "90",
+      "color": "bg-success"
+    },
+    {
+      "id": 5,
+      "habilidad": "backend",
+      "porcentaje": "40"
+    }
+                ],
+
+      "proyectos": [
+       { 
+        "id": 1,
+        "trabajo": "-Secchi Maquinas de Coser y merceria",
+        "anioComienzo": "2010",
+        "puesto": "dueña"
+       },
+       {
+        "id": 2,
+        "trabajo": "-Maquetacion:",
+        "lenguajes": "HTML,CSS,BOOSTRAP",
+        "anioComienzo": "2022"
+       },
+       {
+        "id": 3,
+        "trabajo": "-Mantenimiento de Aplicaciones Web"
+       }
+      ],
+
+       "referencias": [
+        {
+          "id": 1,
+          "ref1": "Trabajo en GoCode como Responsable de Proyectos"
+        },
+        {
+          "id": 2,
+          "ref2": "Secchi Maquinas de Coser y Merceria:Atencion General"
+        },
+        {
+          "id": 3,
+          "ref3": "RD Mantenimiento:Manejo de Facturacion"
+        }
+       ],  
+       
+       "redes": [
+        {
+          "id": 1,
+          "class1": "fa-brands fa-instagram fa-2xl"
+        },
+        {
+          "id": 2,
+          "class2": "fa-brands fa-linkedin fa-2xl"
+        },
+        {
+          "id": 3,
+          "class3": "fa-brands fa-facebook fa-2xl"
+        },
+        {
+          "id": 4,
+          "class4": "fa-brands fa-github fa-2xl"
+        }
+       ]
+}

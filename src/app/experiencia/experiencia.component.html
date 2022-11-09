@@ -1,0 +1,20 @@
+<!--experiencia-->
+<div class="accordion mt-5 mb-5" id="">
+    <div class="accordion-item container-center col-md-4 ">
+      <h1 class="accordion-header" id="Experiencia">
+         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+           <h5><strong>Experiencia</strong></h5>
+         </button>
+       </h1>
+       <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+         <div class="accordion-body" *ngFor="let experiencia of experiencia">
+           <div class="p-2  border-start-3 rounded-end ">
+           <h5><strong>{{experiencia.atencion}}</strong></h5>
+           <h5><strong>{{experiencia.venta}}</strong></h5>
+           <h5><strong>{{experiencia.manualidades}}</strong></h5>
+           <h5><strong>{{experiencia.capacitacion}}</strong></h5>
+           <H5><strong>{{experiencia.analisis}}</strong></H5>
+         </div>
+       </div>
+     </div>
+     </div>

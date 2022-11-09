@@ -1,0 +1,17 @@
+.acordeon-Educacion {
+    margin-top: auto;
+    background-position: 0% 25%;
+    ;
+    font-weight: 500;
+  
+}
+.acordeon-item {
+    /*background-color: var(--bs-accordion-bg);
+    border-width: var(--bs-bg-opacity) solid var();*/
+    background-color: rgba(214, 212, 208,0.7)
+}
+
+.progress {
+    background-color: rgba(214, 212, 208,0.7);
+    background-position:left top;
+}
