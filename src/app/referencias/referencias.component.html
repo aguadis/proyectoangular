@@ -1,10 +1,15 @@
-<div class="modal-body" id="referencias">
-    <div class="mb-3 row">
-       <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-          <option selected>Referencias</option>
-          <option value="1">{{ref1}}</option>
-          <option value="2">{{ref2}}</option>
-          <option value="3">{{ref3}}</option>
-       </select>
-    </div>
- </div>
+<!--referencias-->
+<div class="container text-center" >
+   <h2 class="text-center mt-3 mb-4"> REFERENCIAS </h2>
+   
+   <div class="row align-items-start mb-4 mt-auto"  >
+      
+      <div class="col" *ngFor="let referencia of referencia" >
+      
+      <h4><strong class="text-decoration-underline">{{referencia.nombre}}{{referencia.apellido}}</strong></h4>
+      <h6><strong >{{referencia.cargo}}</strong></h6>
+      <h6><strong >{{referencia.contacto}}</strong></h6>
+      <p hidden>{{referencia.id}}</p>
+     </div>
+  </div>
+</div>

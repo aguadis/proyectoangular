@@ -1,0 +1,72 @@
+<!--educacion-->
+<section id="modal-Educacion" >
+  <h1>Educacion</h1>
+  <div class="container fluid">
+    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Crear</button>
+    <div class=""*ngFor="let educacion of educacion" class="row">
+      <div class="col-2">
+      </div>
+      <div class="col-8">
+        <h5>{{educacion.nivel}} {{educacion.inicio}}</h5> 
+     <h6>{{educacion.estudio}} {{educacion.fin}} </h6>
+    </div>
+     <div class="col-2">
+      <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onLoadModal(educacion)">Editar</button>
+      <button class="btn btn-danger" (click)="eliminarEducacion(educacion.id)">Eliminar</button>
+     </div>
+     </div>
+    </div> 
+  
+   </section>  
+   
+     <!--inicio de educadion Modal -->
+<div class="modal fade" id="educacionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Educacion</h5>
+        
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        
+      </div>
+      <div class="modal-body">
+      <form>
+   
+     <!--colocar textos,imput,botones,formularios para este espacio-->
+    <div>
+    <label for="nivel"><strong>Nivel</strong></label>
+    <input type="text" name="" class="form-control" id="nivel" formControlName="nivel">
+    <input type="hidden" name="" id="id">
+    </div>
+    <div>
+    <label for="nivel"><strong>Inicio</strong></label>
+    <input type="text" name="" class="form-control" id="inicio" formControlName="inicio">
+    </div>
+    <div>
+      <label for="nivel"><strong>Fin</strong></label>
+      <input type="text" name="" class="form-control" id="fin" formControlName="fin">
+      </div>
+      <div>
+      <label for="nivel"><strong>Estudio</strong></label>
+      <input type="text" name="" class="form-control" id="estudio" formControlName="estudio">
+   
+    </div>
+  
+  
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      <button type="submit" class="btn btn-primary" (click)="guardarEducacion">Salvar cambios</button>
+    </div>
+  
+
+  
+  </form>
+
+  </div>
+</div>
+
+  <!--fin de educacion modal-->
+    
+    
+        
+           

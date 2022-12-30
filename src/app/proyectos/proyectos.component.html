@@ -1,13 +1,17 @@
 <!--proyectos-->
-     
-<div class="container-fluid" *ngFor="let proyectos of proyectos" >
-    <h3><strong> Proyectos: </strong></h3>
-    <h4><strong><u>{{proyectos.trabajo1}}</u></strong></h4>
-    <h4><strong><u>{{proyectos.anioComienzo}} {{proyectos.puesto}}</u></strong></h4>
-    <h4><strong><u>{{proyectos.trabajo2}}</u></strong></h4>
-    <h5>{{proyectos.lenguajes}} {{proyectos.anioComienzo}}</h5>
-    <h4><strong><u>{{proyectos.trabajo3}}</u></strong></h4>
-    </div>
-   <br>
-   <br>
-   <br>
+<section id="proyectos" class="proyectos mt5">
+    <div class="container-fluid mt-5">
+       <h2 class="text-center"> PROYECTOS </h2>
+       <div class="row align-items-start" *ngFor="let proyectos of proyectos">
+          <div class="card g-col-4 p-5 m-4   border-start-3 rounded-start" style="width: 25rem;" >
+             <img [src]="proyectos.img" class="rounded float-start" width="90%" alt="...">
+             <div class="card-body" >
+                <div class="col">
+                <p class="card-text ">{{proyectos.trabajo}}</p>
+             </div>
+           </div>
+          </div>
+          </div>
+              </div>
+             </section>
+                 <br>

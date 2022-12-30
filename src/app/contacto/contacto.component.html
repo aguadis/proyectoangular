@@ -1,6 +1,8 @@
 <!-- datos de contacto-->
-<div class="container-fluid text-center qr pt-3">
-    <h3 class="pt-5"><strong>Datos de Contacto y mucho mas:</strong></h3>
-    <h5>Si queres ver mis datos de contacto,puedes escanear el codigo QR </h5>
-    <img src="../../assets/img/QR.jpeg" class="img-thumbnail mb-5" alt="QR">
+<div class="container-fluid text-center qr pt-3" *ngFor="let contacto of contacto" class="row">
+    <h3 class="pt-5"><strong>{{contacto.titulo}}</strong></h3>
+    <h5>{{contacto.frase}}</h5>
+    <img src={{contacto.img}} class="img-thumbnail mb-5" alt="QR">
+    <h4>{{contacto.correo}}</h4>
+    <h4>{{contacto.telefono}}</h4>
    </div>

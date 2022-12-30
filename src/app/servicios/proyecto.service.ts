@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-//Esto es para suscribirse y que se reciba respuesta de forma asíncrona
+//Esto es para suscribirse y que se reciba respuesta de forma asíncronica
 import { Observable } from 'rxjs';
 //Esto es para poder hacer peticiones
 import { HttpClient } from '@angular/common/http';
@@ -8,13 +8,21 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ProyectoService {
-//El primer http se llama alias
-  constructor(private http:HttpClient) { }
+  sProyecto: any;
+  proyecto: any;
+  obtenerDatosProyecto() {
+    this.sProyecto.obtenerDatosProyecto().subscribe((data: string) =>{
+      console.log("Proyecto" + data);
+      
+      
+        }, (error: any) => console.log(error));
+      
+  }
+  url= 'http://localhost:8080/persona/'
 
-//Método observable que devuelve los datos
-getDatos():Observable<any> {
-  //Se llama al JSON con su path -ruta-, o bien, en su lugar se puede poner una URL para traer datos de un JSON online
-  return this.http.get('./assets/json/proyecto.json');
-}
+  constructor(private httpClient: HttpClient ) { 
+    console.log("El servicio esta corriendo");
+  }
 
+  
 }

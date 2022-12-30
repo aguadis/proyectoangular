@@ -1,26 +1,61 @@
 import { Component, OnInit } from '@angular/core';
-import { ProyectoService } from '../servicios/proyecto.service';
+import { Educacion } from '../entidades/educacion';
+import { EducacionService } from '../servicios/educacion.service';
+
+
+
+
+
 @Component({
   selector: 'app-educacion',
   templateUrl: './educacion.component.html',
   styleUrls: ['./educacion.component.css']
 })
 export class EducacionComponent implements OnInit {
+  
 //inicializar variables de instancia 
-educacion: any;
 
-constructor(
+
     //Inyectar el Servicio para tener acceso en la clase a los Métodos
-  private proyectoService: ProyectoService) { }
+    estudios: Educacion[]=[]; //se llama al modelo que es un array
+  
+ 
 
-  ngOnInit(): void {
-    //Esto es almacenar en la variable de instancia los datos recuperados por el Servicio?
-    this.proyectoService.getDatos().subscribe(proyecto => {
-      console.log(proyecto);
-       //Definir infomación a mostrar
-       this.educacion=proyecto.educacion;
-      });
+    constructor(
+      //Inyectar el Servicio para tener acceso en la clase a los Métodos
+    private sEducacion:EducacionService) { }
+  
+    ngOnInit(): void {
+     
+       {
+       this.cargarEducacion(); 
+         //Definir infomación a mostrar
+          
+      };
+    }
+  
+    cargarEducacion(): void{
+      
+      
+    
+    }
+  
+    
+    delete(id:number){
+  if(id != undefined){
+    this.sEducacion.delete(id).subscribe (data =>{
+  
+  //alert("habilidad eliminada correctamente")
+  this.cargarEducacion();
+  
+  }, err =>{
+    alert("no se pudo eliminar la educacion");
+  })
+    }
+    }
+  
+  
   }
 
-}
+  
 

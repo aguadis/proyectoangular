@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProyectoService } from '../servicios/proyecto.service';
 
 @Component({
   selector: 'app-footer',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
+  footer: any;
 
-  constructor() { }
+  constructor(
+    //Inyectar el Servicio para tener acceso en la clase a los Métodos
+    )
+   { }
 
   ngOnInit(): void {
-  }
+    //Esto es almacenar en la variable de instancia los datos recuperados por el Servicio?
+
 
 }
+}
+
+

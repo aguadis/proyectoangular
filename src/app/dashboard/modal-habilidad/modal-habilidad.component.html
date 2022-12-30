@@ -1,0 +1,64 @@
+<!--progress--> 
+
+<section id="habilidad" class="habilidad mt5">
+  <h2 class="text-center mb-4" > HABILIDADES </h2>
+  <div class="container-fluid mt-3">
+    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Crear</button>
+    
+  <div class="accordion-body" >
+     <div class=" row border-start-12 rounded-end">
+        <div class="col-md-12">
+
+        <!-- Iteración sobre la variable de instancia y presentación de datos mediante interpolación -->
+  <div class="progress mb-4" *ngFor="let habilidad of habilidad" class="row" >
+    <div class="progress-bar progress-bar-striped progress-bar-animated" [ngClass]="habilidad.color" role="progressbar" aria-label="Animated striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" [style.width.%]="habilidad.porcentaje">{{habilidad.porcentaje}}% {{habilidad.habilidad}} Completado >
+  
+    </div>
+    <div class="col-2">
+      <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onLoadModal(habilidad)">Editar</button>
+      <button class="btn btn-danger" (click)="eliminarHabilidad(habilidad.id)">Eliminar</button>
+  </div>
+  <br>
+  </div>
+  </div>
+  </div>
+</div>
+
+
+
+
+<!--inicio de habilidad Modal -->
+<div class="modal fade" id="habilidadModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Habilidad</h5>
+          <button type="submit"  class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form name="habilidadForm">
+            <label for="habilidad"><strong>Habilidad</strong></label>
+    <input type="text" name="" class="form-control" id="habilidad" formControlName="habilidad">
+    <input type="hidden" name="" id="id">
+   
+    <div>
+    <label for="habilidad"><strong>Porcentaje</strong></label>
+    <input type="text" name="" class="form-control" id="porcentaje" formControlName="porcentaje">
+    </div>
+    <div>
+      <label for="habilidad"><strong>color</strong></label>
+      <input type="text" name="" class="form-control" id="fin" formControlName="color">
+      </div>
+          
+             
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="submit" class="btn btn-primary" (click)="guardarHabilidad">Salvar cambios</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    </div>
+    </div>
+    <!--fin de habilidad modal-->
+    
