@@ -1,7 +1,7 @@
-<section id="modal-Proyectos" >
-  <h1>Proyectos</h1>
+
+ 
   <div class="container fluid">
-    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Crear</button>
+    <!--button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Crear</button-->
     <div class=""*ngFor="let proyectos of proyectos" class="row">
       <div class="card g-col-4 p-5 m-4   border-start-3 rounded-start" style="width: 25rem;" >
         <img [src]="proyectos.img" class="rounded float-start" width="90%" alt="...">
@@ -11,13 +11,12 @@
         </div>
         </div>
      <div class="col-2">
-      <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onLoadModal(proyectos)">Editar</button>
-      <button class="btn btn-danger" (click)="eliminarProyectos(proyectos.id)">Eliminar</button>
+      
      </div>
      </div>
     </div> 
   </div>
-   </section>  
+   
 
 
 <!--inicio de proyectos Modal -->
@@ -41,8 +40,7 @@
             <input type="text" name="" class="form-control" id="trabajo" formControlName="img">
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                <button type="submit" class="btn btn-primary" (click)="guardarProyectos">Salvar cambios</button>
+                
               </div>
             </form>
           </div>

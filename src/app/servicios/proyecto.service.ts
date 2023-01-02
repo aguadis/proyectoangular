@@ -18,7 +18,7 @@ export class ProyectoService {
         }, (error: any) => console.log(error));
       
   }
-  url= 'http://localhost:8080/persona/'
+  url= 'http://localhost:8080/proyecto/'
 
   constructor(private httpClient: HttpClient ) { 
     console.log("El servicio esta corriendo");

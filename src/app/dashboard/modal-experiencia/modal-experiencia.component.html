@@ -1,7 +1,7 @@
 <section id="modal-Experiencia" >
-  <h1>Experiencia</h1>
+
   <div class="container fluid">
-    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Crear</button>
+    <!--button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Crear</button-->
     <div class=""*ngFor="let experiencia of experiencia" class="row">
       <div class="col-2">
       </div>
@@ -14,8 +14,7 @@
         </div>
         </div>
      <div class="col-2">
-      <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onLoadModal(experiencia)">Editar</button>
-      <button class="btn btn-danger" (click)="eliminarExperiencia(experiencia.id)">Eliminar</button>
+      
      </div>
      </div>
     </div> 
@@ -46,8 +45,7 @@
               <input type="text" name="" class="form-control" id="puesto" formControlName="puesto">
               </div>
               <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-      <button type="submit" class="btn btn-primary" (click)="guardarExperiencia">Salvar cambios</button>
+      
     </div>
   </form>
 

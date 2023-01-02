@@ -1,0 +1,19 @@
+.banner{
+   
+    background-image :[ngClass]="persona.url_banner";
+  
+        margin-top: 7.5rem;
+      
+        background-size: 100%;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+        background-size: cover;
+     }
+    
+    
+ 
+ img.rounded-circle {
+    box-shadow: 6px 6px 6px 6px rgba(51, 119, 165, 0.7);
+    margin-top: 0rem;
+    margin-left: 1rem;
+    }

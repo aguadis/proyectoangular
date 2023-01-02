@@ -11,7 +11,7 @@ import { EducacionComponent } from './educacion/educacion.component';
 import { HabilidadComponent } from './habilidad/habilidad.component';
 import { ProyectosComponent } from './proyectos/proyectos.component';
 import { ContactoComponent } from './contacto/contacto.component';
-import { AcercaComponent } from './acerca/acerca.component';
+
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ErrorComponent } from './error/error.component';
 import { IntroComponent } from './intro/intro.component';
@@ -19,21 +19,21 @@ import { ReferenciasComponent } from './referencias/referencias.component';
 import { LoginComponent } from './login/login.component';
 import { ServiciosComponent } from './servicios/servicios.component';
 import { FooterComponent } from './footer/footer.component';
-import { BannerComponent } from './banner/banner.component';
+
 import { IntroService } from './servicios/intro.service';
 
-import { ModalRedComponent } from './dashboard2/modal-red/modal-red.component';
+import { ModalRedComponent } from './dashboard/modal-red/modal-red.component';
 import { ModalBannerComponent } from './dashboard/modal-banner/modal-banner.component';
-import { ModalAcercaComponent } from './dashboard2/modal-acerca/modal-acerca.component';
+import { ModalPersonaComponent } from './dashboard/modal-persona/modal-persona.component';
 import { ModalExperienciaComponent } from './dashboard/modal-experiencia/modal-experiencia.component';
 import { ModalEducacionComponent } from './dashboard/modal-educacion/modal-educacion.component';
 import { ModalHabilidadComponent } from './dashboard/modal-habilidad/modal-habilidad.component';
 import { ModalProyectosComponent } from './dashboard/modal-proyectos/modal-proyectos.component';
 import { ModalContactoComponent } from './dashboard/modal-contacto/modal-contacto.component';
 import { ModalReferenciasComponent } from './dashboard/modal-referencias/modal-referencias.component';
-import { PanelComponent } from './dashboard2/panel/panel.component';
+import { PanelComponent } from './dashboard/panel/panel.component';
 import { PersonaComponent } from './persona/persona.component';
-import { Dashboard2Component } from './dashboard2/dashboard2.component';
+
 
 
 
@@ -54,7 +54,7 @@ import { Dashboard2Component } from './dashboard2/dashboard2.component';
         HabilidadComponent,
         ProyectosComponent,
         ContactoComponent,
-        AcercaComponent,
+    
         DashboardComponent,
         ErrorComponent,
         IntroComponent,
@@ -62,10 +62,10 @@ import { Dashboard2Component } from './dashboard2/dashboard2.component';
         LoginComponent,
         ServiciosComponent,
         FooterComponent,
-        BannerComponent,
+       
         ModalRedComponent,
         ModalBannerComponent,
-        ModalAcercaComponent,
+        ModalPersonaComponent,
         ModalExperienciaComponent,
         ModalEducacionComponent,
         ModalHabilidadComponent,
@@ -74,7 +74,7 @@ import { Dashboard2Component } from './dashboard2/dashboard2.component';
         ModalReferenciasComponent,
         PanelComponent,
         PersonaComponent,
-        Dashboard2Component,
+        
       
         
     ],

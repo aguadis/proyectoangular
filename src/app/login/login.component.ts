@@ -38,11 +38,11 @@ export class LoginComponent implements OnInit {
       // Llamamos a nuestro servicio para enviar los datos al servidor
       // También podríamos ejecutar alguna lógica extra
       
-let pers:Persona = new Persona("", "", "", "", "", "", "",this.form.get("email")?.value,  this.form.get("password")?.value);
+//let pers:Persona = new Persona("", "", "", "", "", "", "",this.form.get("email"),  this.form.get("password"));
 
-      this.autenticacionService.login(pers).subscribe(data=>{
+      this.autenticacionService.login(Persona).subscribe(data=>{
         console.log("DATA:" + JSON.stringify(data));
-        this.ruta.navigate(['/dashboard2']);
+        this.ruta.navigate(['/dashboard']);
       },error=>{
         console.log(error);
       }

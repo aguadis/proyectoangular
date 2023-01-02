@@ -8,6 +8,7 @@ import { PersonaComponent } from '../persona/persona.component';
   providedIn: 'root'
 })
 export class PersonaService {
+  
   sPersona: any;
   persona: any;
   obtenerDatosPersona() {
@@ -24,27 +25,6 @@ export class PersonaService {
     console.log("El servicio esta corriendo");
   }
 
-  public lista():Observable <PersonaComponent[]>{
-    return this.httpClient.get<PersonaComponent[]>(this.url+'lista');
-
-  }
-
-  public detail(id:number):Observable<PersonaComponent>{
-
-    return this.httpClient.get<PersonaComponent>(this.url+ `detail/${id}`);
-
-  }
-  public save(persona:PersonaComponent):Observable<any>{
-return this.httpClient.post<any>(this.url+ 'create',persona);
-
-  }
-
-  public update(id:number, persona: PersonaComponent):Observable<any>{
-return this.httpClient.put<any>(this.url +`update/${id}`,this.persona)
-
-  }
-  public delete(id :number):Observable<any>{
-    return this.httpClient.delete<any>(this.url+ `delete/${id}`);
-  }
+  
 }
 

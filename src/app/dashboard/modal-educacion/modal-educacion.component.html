@@ -1,8 +1,8 @@
 <!--educacion-->
 <section id="modal-Educacion" >
-  <h1>Educacion</h1>
+
   <div class="container fluid">
-    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Crear</button>
+    <!--button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Crear</button-->
     <div class=""*ngFor="let educacion of educacion" class="row">
       <div class="col-2">
       </div>
@@ -11,8 +11,7 @@
      <h6>{{educacion.estudio}} {{educacion.fin}} </h6>
     </div>
      <div class="col-2">
-      <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onLoadModal(educacion)">Editar</button>
-      <button class="btn btn-danger" (click)="eliminarEducacion(educacion.id)">Eliminar</button>
+      
      </div>
      </div>
     </div> 
@@ -54,8 +53,7 @@
   
   
     <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-      <button type="submit" class="btn btn-primary" (click)="guardarEducacion">Salvar cambios</button>
+     
     </div>
   
 

@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./intro.component.css']
 })
 export class IntroComponent implements OnInit {
-  intro: any[]=[];
+  intro: any;
 
   constructor(
     //Inyectar el Servicio para tener acceso en la clase a los Métodos

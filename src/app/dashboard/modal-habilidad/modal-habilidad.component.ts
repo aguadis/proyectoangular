@@ -9,10 +9,9 @@ import { HabilidadService } from 'src/app/servicios/habilidad.service';
   styleUrls: ['./modal-habilidad.component.css']
 })
 export class ModalHabilidadComponent implements OnInit {
-  habilidad:any;
-  form:FormGroup;
-  id?:number;
+habilidad: any;
 
+  
 
   //inicializar variables de instancia
   
@@ -21,41 +20,11 @@ export class ModalHabilidadComponent implements OnInit {
       
   constructor(
 //Inyectar el Servicio para tener acceso en la clase a los Métodos
- private sHabilidad:HabilidadService, private formBuilder: FormBuilder, private formGroup: FormGroup) {
-  
-  this.form= this.formBuilder.group({
-   habilidad:['',[Validators.required]],
-   porcentaje:['',[Validators.required]],
-   color:['',[Validators.required]],
-   id:['']
-  })
- }
+ ) {}
 
 
- ngOnInit(): void {
-  
-     
-  }
+ ngOnInit(): void {}
     
-
-
-onLoadModal(habilidad:any) {
-this.form.get("habilidad")?.setValue(this.habilidad.habilidad);
-this.form.get("porcentaje")?.setValue(this.habilidad.porcentaje);
-this.form.get("color")?.setValue(this.habilidad.color);
-this.form.get("id")?.setValue(this.habilidad.id);
-}
-
-guardarHabilidad() {
-  alert("Registro a modificar " + this.form.get("id")?.value);
-  // llamar al servicio y enviar los datos
-}
-
-eliminarHabilidad(id:number ){
-  alert( "El registro a eliminar es: " + id);
-}
-
-
 }
 
     

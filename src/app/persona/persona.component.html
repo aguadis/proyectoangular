@@ -1,1 +1,18 @@
-<p>persona works!</p>
+<!--acerca de mi-->
+<section id="persona" class="about">
+    <div class="container text-center center pt-5">
+      <div class="row">
+      <div class="col-3" >
+      <img [ngClass]="Persona.foto_perfil" class="rounded-circle w-100" alt="..." title="...">
+      <h2 class="fw-normal"><span class="text-secondary">{{Persona.nombre}} {{Persona.apellido}}</span></h2>
+      <h4 class="fw-normal"><span class="text-secondary">{{Persona.frase}}</span></h4>
+       </div>
+        <div class="col-9 mt-4">
+          <h2><span class="text-secondary"> Acerca de Mi </span></h2>
+          <br>
+          <h5><span class="text-secondary lh-lg">{{Persona.acerca}}</span></h5>
+        </div>
+      </div>
+    </div>
+     </section>
+

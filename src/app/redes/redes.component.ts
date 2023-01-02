@@ -7,7 +7,7 @@ import { Red } from '../entidades/red';
   styleUrls: ['./redes.component.css']
 })
 export class RedesComponent implements OnInit {
-  redes: Red[]=[];
+  redes: any;
   
 
   constructor()

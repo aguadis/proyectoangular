@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -5,11 +6,20 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './servicios.component.html',
   styleUrls: ['./servicios.component.css']
 })
-export class ServiciosComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+export class ServiciosComponent {
+  sServicios: any;
+  servicios: any;
+  obtenerDatosServicios() {
+    this.sServicios.obtenerDatosServicios().subscribe((data: string) =>{
+      console.log("Servicios" + data);
+      
+      
+        }, (error: any) => console.log(error));
+      
   }
+  url= 'http://localhost:8080/servicios/'
+  constructor(private httpClient:HttpClient) {console.log("El servicio esta corriendo"); }
+
+  
 
 }

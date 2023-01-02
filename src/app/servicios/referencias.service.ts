@@ -20,26 +20,7 @@ export class ReferenciasService {
 
   url= 'http://localhost:8080/referencia/'
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient:HttpClient) {  console.log("El servicio esta corriendo");}
 
-public list(): Observable<ReferenciasComponent[]> {
- return this.httpClient.get<any[]>(this.url + 'lista');
-}
 
-public getById(id: number):Observable<ReferenciasComponent>{
- return this.httpClient.get<ReferenciasComponent>(this.url + 'detail/${id}');
-}
-
-public save(referencias: ReferenciasComponent):Observable<any>{
- return this.httpClient.post<any>(this.url + 'create', referencias);
-}
-
-public update(id: number, referencias: ReferenciasComponent):Observable<any>{
-  return this.httpClient.put<any>(this.url + 'update/${id}', referencias);
-}
-
-public delete(id: number):Observable<any>{
-  return this.httpClient.delete<any>(this.url + 'delete/${id}');
-}
- 
 }

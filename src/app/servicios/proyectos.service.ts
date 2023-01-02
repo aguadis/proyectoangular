@@ -20,25 +20,25 @@ export class ProyectosService {
   }
   url= 'http://localhost:8080/proyecto/'
 
-  constructor(private httpClient: HttpClient) { }
-  public list(): Observable<ProyectosComponent[]>{
-    return this.httpClient.get<ProyectosComponent[]>(this.url + 'lista');
-    }
+  constructor(private httpClient: HttpClient) { console.log("El servicio esta corriendo"); }
+  //public list(): Observable<ProyectosComponent[]>{
+   // return this.httpClient.get<ProyectosComponent[]>(this.url + 'lista');
+    //}
     
-    public getById(id: number):Observable<ProyectosComponent>{
-      return this.httpClient.get<ProyectosComponent>(this.url + 'detail/${id}');
-    }
+   // public getById(id: number):Observable<ProyectosComponent>{
+    //  return this.httpClient.get<ProyectosComponent>(this.url + 'detail/${id}');
+    //}
     
-    public save(proyectos: ProyectosComponent):Observable<any>{
-      return this.httpClient.post<any>(this.url + 'create', proyectos);
-    }
+    //public save(proyectos: ProyectosComponent):Observable<any>{
+      //return this.httpClient.post<any>(this.url + 'create', proyectos);
+    //}
     
-    public update(id: number, proyectos: ProyectosComponent):Observable<any>{
-      return this.httpClient.put<any>(this.url + 'update/${id}', proyectos);
-    }
+    //public update(id: number, proyectos: ProyectosComponent):Observable<any>{
+     // return this.httpClient.put<any>(this.url + 'update/${id}', proyectos);
+    //}
     
-    public delete(id: number):Observable<any>{
-      return this.httpClient.delete<any>(this.url + 'delete/${id}');
-    }
+    //public delete(id: number):Observable<any>{
+     // return this.httpClient.delete<any>(this.url + 'delete/${id}');
+    //}
 
 }
