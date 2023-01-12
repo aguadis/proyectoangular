@@ -12,40 +12,26 @@ export class HabilidadComponent implements OnInit {
 //inicializar variables de instancia 
 
  habilidades: Habilidad[]=[]; //se llama al modelo que es un array
+  habilidad: any;
   
  
 
   constructor(
     //Inyectar el Servicio para tener acceso en la clase a los Métodos
-  private sHabilidad:HabilidadService) { }
+  private HabilidadService:HabilidadService,) { }
+
+  listarHabilidad():void{
+    this.HabilidadService.list().subscribe ((data: any)=>{
+     this.habilidad=data;
+    });
+   }
+
 
   ngOnInit(): void {
-   
-     {
-     this.cargarhabilidad(); 
-       //Definir infomación a mostrar
-        
-    };
+     //Esto es almacenar en la variable de instancia los datos recuperados por el Servicio
+     this.listarHabilidad(); 
 
-      
-  }
-
-  cargarhabilidad(): void{
-    this.sHabilidad.list()
-  }
-
-  
-  delete(id:number){
-if(id != undefined){
-  this.sHabilidad.delete(id).subscribe (data =>{
-
-//alert("habilidad eliminada correctamente")
-this.cargarhabilidad();
-
-}, err =>{
-  alert("no se pudo eliminar la habilidad");
-})
-  }
-  }
-
-}
+         }
+ 
+       
+   }

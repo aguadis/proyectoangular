@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { ProyectosComponent } from '../proyectos/proyectos.component';
+
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,7 @@ export class ProyectosService {
         }, (error: any) => console.log(error));
       
   }
-  url= 'http://localhost:8080/proyecto/'
+  url= 'http://localhost:8080/proyecto'
 
   constructor(private httpClient: HttpClient) { console.log("El servicio esta corriendo"); }
   //public list(): Observable<ProyectosComponent[]>{

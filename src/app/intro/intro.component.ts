@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { IntroService } from '../servicios/intro.service';
 
 @Component({
   selector: 'app-intro',
@@ -7,18 +7,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./intro.component.css']
 })
 export class IntroComponent implements OnInit {
-  intro: any;
+
+  intro:any 
+  
 
   constructor(
-    //Inyectar el Servicio para tener acceso en la clase a los Métodos
-   )
-   { }
+      //Inyectar el Servicio para tener acceso en la clase a los Métodos
+      private IntroService:IntroService,
+      ) { }
+     
+  
+  
+     ngOnInit(): void {
+        //Esto es almacenar en la variable de instancia los datos recuperados por el Servicio
+         
+   
+            }
+    
+          
+      }
+    
+      
+ 
 
-  ngOnInit(): void {
-   //Esto es almacenar en la variable de instancia los datos recuperados por el Servicio?
 
-
-}
-}
 
 

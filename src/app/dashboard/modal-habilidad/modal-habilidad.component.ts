@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HabilidadService } from 'src/app/servicios/habilidad.service';
+
 
 
 @Component({

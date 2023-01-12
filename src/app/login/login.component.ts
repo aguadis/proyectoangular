@@ -6,6 +6,7 @@ import { AutenticacionService } from '../servicios/autenticacion.service';
 import { Router } from '@angular/router';
 import { Persona } from '../entidades/persona';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,10 +14,11 @@ import { Persona } from '../entidades/persona';
 })
 
 export class LoginComponent implements OnInit {
-  form: FormGroup;
+  form:FormGroup;
   email = '';
   password = '';
   authService: any;
+ 
 
   // Inyectar en el constructor el formBuilder
   constructor(public _servicio: ProyectoService,  private formBuilder: FormBuilder, private autenticacionService:AutenticacionService, private ruta:Router){ 
@@ -38,15 +40,15 @@ export class LoginComponent implements OnInit {
       // Llamamos a nuestro servicio para enviar los datos al servidor
       // También podríamos ejecutar alguna lógica extra
       
-//let pers:Persona = new Persona("", "", "", "", "", "", "",this.form.get("email"),  this.form.get("password"));
-
-      this.autenticacionService.login(Persona).subscribe(data=>{
-        console.log("DATA:" + JSON.stringify(data));
-        this.ruta.navigate(['/dashboard']);
-      },error=>{
-        console.log(error);
-      }
-      )
+  //let persona:Persona = new Persona("", "", "", "", "", "", "",this.form.get("email")?value,  this.form.get("password")?value);
+  //persona: Persona = new Persona("", "", "", "", "", "", "", "", "", "", "",);
+      //this.autenticacionService.login(pers).subscribe(data=>{
+        //console.log("DATA:" + JSON.stringify(data));
+        //this.ruta.navigate(['/dashboard']);
+      //},error=>{
+       // console.log(error);
+      //}
+      //)
     }
     else{
       // Corremos todas las validaciones para que se ejecuten los mensajes de error en el template     
@@ -77,11 +79,4 @@ export class LoginComponent implements OnInit {
  get MailValid(){
  return this.Mail?.touched && !this.Mail?.valid;
  }
- 
- 
- 
-  
-    
- 
-
-}
+ }

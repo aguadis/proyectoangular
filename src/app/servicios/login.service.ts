@@ -17,28 +17,28 @@ export class LoginService {
         }, (error: any) => console.log(error));
       
   }
-  url= 'http://localhost:8080/login/'
+  url= 'http://localhost:8080/login';
 
   constructor(private httpClient:HttpClient) { }
 
 public list(): Observable<LoginComponent[]> {
- return this.httpClient.get<any[]>(this.url + 'lista');
+ return this.httpClient.get<any[]>(this.url);
 }
 
 public getById(id: number):Observable<LoginComponent>{
- return this.httpClient.get<LoginComponent>(this.url + 'detail/${id}');
+ return this.httpClient.get<LoginComponent>(this.url + '/${id}');
 }
 
 public save(login: LoginComponent):Observable<any>{
- return this.httpClient.post<any>(this.url + 'create', login);
+ return this.httpClient.post<any>(this.url, login);
 }
 
 public update(id: number, login: LoginComponent):Observable<any>{
-  return this.httpClient.put<any>(this.url + 'update/${id}', login);
+  return this.httpClient.put<any>(this.url, login);
 }
 
 public delete(id: number):Observable<any>{
-  return this.httpClient.delete<any>(this.url + 'delete/${id}');
+  return this.httpClient.delete<any>(this.url + '/${id}');
 }
 
 }

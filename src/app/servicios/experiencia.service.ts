@@ -1,43 +1,38 @@
-//import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-//import { Observable } from 'rxjs';
-
-//import { ExperienciaComponent } from '../experiencia/experiencia.component';
+// es para suscribirse y que se reciba respuesta de forma asincronica
+import { Observable } from 'rxjs';
+//es para poder hacer peticiones
+import { HttpClient } from '@angular/common/http';
+import { Experiencia } from '../entidades/experiencia';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ExperienciaService {
-  //sExperiencia: any;
-  //experiencia: any;
-  //obtenerDatosExperiencia() {
-    //this.sExperiencia.obtenerDatosExperiencia().subscribe((data: string) =>{
-      //console.log("Experiencia" + data);
-      
-      
-        //}//, (error: any) => console.log(error));
-      
-  //}
-  //url= 'http://localhost:8080/experiencia/'
+  sExperiencia: any;
+  experiencia: any;
+   url= 'http://localhost:8080/experiencia'
+  
+ constructor(private httpClient: HttpClient) { }
 
-  //constructor(private httpClient: HttpClient) { }
-
-  //public list(): Observable<ExperienciaComponent[]>{
+  public list(): Observable<any>{
+    return this.httpClient.get<any>(this.url);
+    }
+    
+    //public getById(id: number):Observable<Experiencia[]>{
+      //return this.httpClient.get<Experiencia[]>(this.url + '/${id}');
     //}
     
-    //public getById(id: number):Observable<ExperienciaComponent>{
-      //return this.httpClient.get<ExperienciaComponent>(this.url + 'detail/${id}');
+    //public save(experiencia: Experiencia):Observable<Experiencia[]>{
+     //return this.httpClient.post<any>(this.url, experiencia);
     //}
     
-    //public save(experiencia: ExperienciaComponent):Observable<any>{
-     // return this.httpClient.post<any>(this.url + 'create', experiencia);
+    //public update(experiencia: Experiencia):Observable<Experiencia[]>{
+     //return this.httpClient.post<any>(this.url, experiencia);
     //}
     
-    //public update(id: number, experiencia: ExperienciaComponent):Observable<any>{
-    //  return this.httpClient.put<any>(this.url + 'update/${id}', experiencia);
-    //}
+   // public delete(id: number):Observable<any>{
+    // return this.httpClient.delete<any>(this.url + '/${id}');
     
-    //public delete(id: number):Observable<any>{
-    //  return this.httpClient.delete<any>(this.url + 'delete/${id}');
-    //}
+   // }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProyectoService } from '../servicios/proyecto.service';
+
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +11,7 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     //Inyectar el Servicio para tener acceso en la clase a los Métodos
-    private proyectoService: ProyectoService)
+    )
    { }
 
   ngOnInit(): void {

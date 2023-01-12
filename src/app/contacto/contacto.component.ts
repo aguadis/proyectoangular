@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Contacto } from '../entidades/contacto';
+import { ContactoService } from '../servicios/contacto.service';
 
-import { ProyectoService } from '../servicios/proyecto.service';
 
 
 @Component({
@@ -12,22 +11,26 @@ import { ProyectoService } from '../servicios/proyecto.service';
 })
 export class ContactoComponent implements OnInit {
   contacto: Contacto[]=[];
-  form: FormGroup;
-  correo = '';
-  telefono = '';
-  img ='';
-  frase = '';
-  titulo = '';
- 
-
-  constructor(public _servicio: ProyectoService,  private formBuilder: FormBuilder){ 
-    ///Creamos el grupo de controles para el formulario de login
-    this.form= this.formBuilder.group({
-      
-   })
-
   
-  }  ngOnInit(): void {
-   
-  }
-}
+ 
+  constructor(
+    //Inyectar el Servicio para tener acceso en la clase a los Métodos
+    private ContactoService:ContactoService,
+    ) { }
+    
+    listarContacto():void{
+     this.ContactoService.list().subscribe ((data: Contacto[])=>{
+      this.contacto=data;
+     });
+    }
+
+
+   ngOnInit(): void {
+      //Esto es almacenar en la variable de instancia los datos recuperados por el Servicio
+      this.listarContacto(); 
+ 
+          }
+  
+        
+    }
+  
