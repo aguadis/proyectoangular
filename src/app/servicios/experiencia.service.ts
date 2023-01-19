@@ -10,8 +10,8 @@ import { Experiencia } from '../entidades/experiencia';
 })
 export class ExperienciaService {
   sExperiencia: any;
-  experiencia: any;
-   url= 'http://localhost:8080/experiencia'
+  experiencia: Experiencia[]=[];
+   url= 'http://localhost:8080/experiencia';
   
  constructor(private httpClient: HttpClient) { }
 
@@ -19,20 +19,20 @@ export class ExperienciaService {
     return this.httpClient.get<any>(this.url);
     }
     
-    //public getById(id: number):Observable<Experiencia[]>{
-      //return this.httpClient.get<Experiencia[]>(this.url + '/${id}');
-    //}
+    public getById(id: number):Observable<Experiencia[]>{
+      return this.httpClient.get<Experiencia[]>(this.url + '/${id}');
+    }
     
-    //public save(experiencia: Experiencia):Observable<Experiencia[]>{
-     //return this.httpClient.post<any>(this.url, experiencia);
-    //}
+    public save(experiencia: Experiencia):Observable<Experiencia[]>{
+     return this.httpClient.post<any>(this.url, experiencia);
+    }
     
-    //public update(experiencia: Experiencia):Observable<Experiencia[]>{
-     //return this.httpClient.post<any>(this.url, experiencia);
-    //}
+    public update(experiencia: Experiencia):Observable<Experiencia[]>{
+     return this.httpClient.put<any>(this.url, experiencia);
+    }
     
-   // public delete(id: number):Observable<any>{
-    // return this.httpClient.delete<any>(this.url + '/${id}');
+    public delete(id: number):Observable<any>{
+     return this.httpClient.delete<any>(this.url + '/${id}');
     
-   // }
+    }
 }

@@ -115,20 +115,23 @@
        "referencias": [
         {
           "id": 1,
-          "nombre": "GABRIELA DE LA MATA",
-          "cargo": "COORDINADORA GENERAL EN GOCODE",
+          "nombre": "GABRIELA",
+          "apellido": " GARCIA DE LA MATA",
+           "cargo": "COORDINADORA GENERAL EN GOCODE",
           "contacto": "CONTACTO: 895794587"
 
         },
         {
           "id": 2,
-          "nombre": "MONICA MOREJON",
+          "nombre": "MONICA",
+          "apellido": "MOREJON",
           "cargo": "RESPONSABLE DE RRHH EN GOCODE",
           "contacto": "CONTACTO: 89575456"
         },
         {
           "id": 3,
-          "nombre": "DIEGO SECCHI",
+          "nombre": "DIEGO MARTIN",
+          "apellido": "SECCHI",
           "cargo": "DUEÑO EN RD MANTENIMIENTO",
           "contacto": "CONTACTO: 334346565"
         }

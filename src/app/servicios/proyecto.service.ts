@@ -9,26 +9,27 @@ import { Proyecto } from '../entidades/proyecto';
   providedIn: 'root'
 })
 export class ProyectoService {
-  
+  sProyecto: any;
+  proyecto: Proyecto[]=[];
   url= 'http://localhost:8080/proyecto';
   
  
 
   constructor(private httpClient: HttpClient) { }
 
-  public list(): Observable<Proyecto[]>{
-    return this.httpClient.get<Proyecto[]>(this.url);
+  public list(): Observable<any>{
+    return this.httpClient.get<any>(this.url);
     }
     
-    public getById(id: number):Observable<Proyecto>{
-      return this.httpClient.get<Proyecto>(this.url + '/${id}');
+    public getById(id: number):Observable<Proyecto[]>{
+      return this.httpClient.get<Proyecto[]>(this.url + '/${id}');
     }
     
-    public save(proyecto: Proyecto):Observable<any>{
+    public save(proyecto: Proyecto):Observable<Proyecto[]>{
      return this.httpClient.post<any>(this.url, proyecto);
     }
     
-    public update(proyecto: Proyecto):Observable<any>{
+    public update(proyecto: Proyecto):Observable<Proyecto[]>{
      return this.httpClient.post<any>(this.url, proyecto);
     }
     

@@ -1,14 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ContactoComponent } from '../contacto/contacto.component';
+
 import { Contacto } from '../entidades/contacto';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContactoService {
-  
+  sContacto: any;
+  contacto: Contacto[]=[];
 
   url= 'http://localhost:8080/contacto';
 
@@ -19,15 +20,15 @@ export class ContactoService {
     return this.httpClient.get<Contacto[]>(this.url);
     }
     
-    public getById(id: number):Observable<Contacto>{
-      return this.httpClient.get<Contacto>(this.url + '/${id}');
+    public getById(id: number):Observable<Contacto[]>{
+      return this.httpClient.get<Contacto[]>(this.url + '/${id}');
     }
     
-    public save(contacto: Contacto):Observable<any>{
+    public save(contacto: Contacto):Observable<Contacto[]>{
      return this.httpClient.post<any>(this.url, contacto);
     }
     
-    public update(contacto: Contacto):Observable<any>{
+    public update(contacto: Contacto):Observable<Contacto[]>{
      return this.httpClient.post<any>(this.url, contacto);
     }
     

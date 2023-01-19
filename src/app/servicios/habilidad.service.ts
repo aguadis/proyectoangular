@@ -8,7 +8,8 @@ import { Habilidad } from '../entidades/habilidad';
   providedIn: 'root'
 })
 export class HabilidadService {
-  
+  sHabilidad: any;
+  habilidad: Habilidad[]=[];
   url= 'http://localhost:8080/habilidad';
 
   constructor(private httpClient: HttpClient) { }
@@ -17,20 +18,20 @@ export class HabilidadService {
     return this.httpClient.get<any>(this.url);
     }
     
-    //public getById(id: number):Observable<Habilidad>{
-      //return this.httpClient.get<Habilidad>(this.url + '/${id}');
-   // }
+    public getById(id: number):Observable<Habilidad[]>{
+      return this.httpClient.get<Habilidad[]>(this.url + '/${id}');
+    }
     
-   // public save(habilidad: Habilidad):Observable<any>{
-    // return this.httpClient.post<any>(this.url, habilidad);
-    //}
+    public save(habilidad: Habilidad):Observable<Habilidad[]>{
+     return this.httpClient.post<any>(this.url, habilidad);
+    }
     
-    //public update(habilidad: Habilidad):Observable<any>{
-     //return this.httpClient.post<any>(this.url, habilidad);
-   // }
+    public update(habilidad: Habilidad):Observable<Habilidad[]>{
+     return this.httpClient.post<any>(this.url, habilidad);
+    }
     
-    //public delete(id: number):Observable<any>{
-     //return this.httpClient.delete<any>(this.url + '/${id}');
+    public delete(id: number):Observable<any>{
+     return this.httpClient.delete<any>(this.url + '/${id}');
     
-   // }
+   }
 }

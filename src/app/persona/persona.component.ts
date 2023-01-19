@@ -8,34 +8,39 @@ import { PersonaService } from '../servicios/persona.service';
   styleUrls: ['./persona.component.css']
 })
 export class PersonaComponent  {
-  persona: Persona[]=[]; //se llama al modelo que es un array
-  item: any;
-  listarpersona: any;
-  _console: Console;
-  private _findOriginalError: any;
+  persona: any=[]; //se llama al modelo que es un array
+  item: Persona[]=[];
+   PersonaService: any;
+   
+  
 
 constructor(
     //Inyectar el Servicio para tener acceso en la clase a los Métodos
     private sPersona:PersonaService
-    ) { this._console = console; }
-
-    handleError(error: any) {
-      const originalError = this._findOriginalError(error);
-      this._console
-      //.error('ERROR', error);
-      if (originalError) {
-          this._console.error('ORIGINAL ERROR', originalError);
-      }
-  }
+    ) { }
+    listarPersona(): void{
+      this.sPersona.list().subscribe(data =>{
+        this.persona=data;
+      });
+    }
+    
     
     ngOnInit(): void {
       //Esto es almacenar en la variable de instancia los datos recuperados por el Servicio
-     
+      this.sPersona.list().subscribe({
+        next: (v) => { 
+          console.log(v);
+          this.persona=v},
+        error: (e) => console,
+        complete: () => console.info('complete') 
+    });
+          };
+  
       
         
     }
 
-  }
+  
  
   
  

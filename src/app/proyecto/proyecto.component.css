@@ -1,0 +1,9 @@
+.text-center {
+    text-align: center!important;
+}
+.card {
+    box-shadow: 8px 8px 8px 8px rgba(39, 33, 29, 0.308);
+    margin-top: 4rem;
+    margin-left: 2rem;
+    
+}

@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { Persona } from '../entidades/persona';
 
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,10 +15,11 @@ import { Persona } from '../entidades/persona';
 })
 
 export class LoginComponent implements OnInit {
-  form:FormGroup;
+  FormGroup: any;
   email = '';
   password = '';
   authService: any;
+  form: any;
  
 
   // Inyectar en el constructor el formBuilder
@@ -32,29 +34,35 @@ export class LoginComponent implements OnInit {
   
   onEnviar(event: Event){
     // Detenemos la propagación o ejecución del compotamiento submit de un form
-    event.preventDefault;
+    
      
-
-
-    if (this.form.valid){
+   if (this.form.valid){
       // Llamamos a nuestro servicio para enviar los datos al servidor
       // También podríamos ejecutar alguna lógica extra
+      event.preventDefault; 
+  let persona:Persona = new Persona("", "", "", "", "", "",this.form.get("email"),this.form.get("password"));
+  
+      this.autenticacionService.login(this.form.value).subscribe(data=>{
+        console.log("DATA:" + JSON.stringify(data));
+        if (data === null || data === undefined)
+        {
+          alert("Credenciales no validas");
+        }else{
+        this.ruta.navigate(['/dashboard']);
+        }
+      },
+      error=>{
+        console.log(error);
+        alert("Credenciales no validos" + error);
+      })
       
-  //let persona:Persona = new Persona("", "", "", "", "", "", "",this.form.get("email")?value,  this.form.get("password")?value);
-  //persona: Persona = new Persona("", "", "", "", "", "", "", "", "", "", "",);
-      //this.autenticacionService.login(pers).subscribe(data=>{
-        //console.log("DATA:" + JSON.stringify(data));
-        //this.ruta.navigate(['/dashboard']);
-      //},error=>{
-       // console.log(error);
-      //}
-      //)
     }
     else{
       // Corremos todas las validaciones para que se ejecuten los mensajes de error en el template     
-      this.form.markAllAsTouched();
-      alert("Todo salio mal, no enviar el formulario") 
-    };
+      sessionStorage.setItem('currenUser', "null");
+      sessionStorage.setItem('idUser', "0");
+      alert("Credenciales no validas");
+    }
  
  }
  ngOnInit(): void {}

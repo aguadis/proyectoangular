@@ -11,14 +11,15 @@ import { Habilidad } from '../entidades/habilidad';
 export class HabilidadComponent implements OnInit {
 //inicializar variables de instancia 
 
- habilidades: Habilidad[]=[]; //se llama al modelo que es un array
-  habilidad: any;
-  
- 
+habilidad: any=[]; //se llama al modelo que es un array
+item: Habilidad[]=[];
+ HabilidadService: any;
+
+
 
   constructor(
     //Inyectar el Servicio para tener acceso en la clase a los Métodos
-  private HabilidadService:HabilidadService,) { }
+  private sHabilidad:HabilidadService,) { }
 
   listarHabilidad():void{
     this.HabilidadService.list().subscribe ((data: any)=>{
@@ -29,9 +30,14 @@ export class HabilidadComponent implements OnInit {
 
   ngOnInit(): void {
      //Esto es almacenar en la variable de instancia los datos recuperados por el Servicio
-     this.listarHabilidad(); 
-
-         }
+     this.sHabilidad.list().subscribe({
+      next: (v: any) => { 
+        console.log(v);
+        this.habilidad=v},
+      error: (e: any) => console,
+      complete: () => console.info('complete') 
+  });
+        };
  
        
    }

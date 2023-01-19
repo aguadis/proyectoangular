@@ -10,27 +10,34 @@ import { ContactoService } from '../servicios/contacto.service';
   styleUrls: ['./contacto.component.css']
 })
 export class ContactoComponent implements OnInit {
-  contacto: Contacto[]=[];
+  contacto: any=[]; //se llama al modelo que es un array
+  item: Contacto[]=[];
+   ContactoService: any;
+ 
+ 
   
  
-  constructor(
-    //Inyectar el Servicio para tener acceso en la clase a los Métodos
-    private ContactoService:ContactoService,
-    ) { }
-    
-    listarContacto():void{
-     this.ContactoService.list().subscribe ((data: Contacto[])=>{
-      this.contacto=data;
-     });
-    }
-
-
-   ngOnInit(): void {
+ constructor(
+     //Inyectar el Servicio para tener acceso en la clase a los Métodos
+     private sContacto:ContactoService
+     ) { }
+  
+ 
+     listarContacto(): void{
+       this.sContacto.list().subscribe(data =>{
+         this.contacto=data;
+       });
+     }
+     ngOnInit(): void {
       //Esto es almacenar en la variable de instancia los datos recuperados por el Servicio
-      this.listarContacto(); 
- 
-          }
-  
-        
+      this.sContacto.list().subscribe({
+        next: (v) => { 
+          console.log(v);
+          this.contacto=v},
+        error: (e) => console,
+        complete: () => console.info('complete') 
+    });
+          };
+
+
     }
-  

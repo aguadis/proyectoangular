@@ -10,9 +10,10 @@ import { Persona } from '../entidades/persona';
   providedIn: 'root'
 })
 export class PersonaService {
+  listarPersonas: any;
   sPersona: any;
-  persona: any;
-   url= 'http://localhost:8080/persona'
+  persona: Persona[]=[];
+   url= 'http://localhost:8080/persona';
   
  constructor(private httpClient: HttpClient) { }
 
@@ -20,15 +21,15 @@ export class PersonaService {
     return this.httpClient.get<Persona[]>(this.url);
     }
     
-    public getById(id: number):Observable<any>{
+    public getById(id: number):Observable<Persona[]>{
       return this.httpClient.get<Persona[]>(this.url + '/${id}');
     }
     
-    public save(persona: Persona):Observable<any>{
+    public save(persona: Persona):Observable<Persona[]>{
      return this.httpClient.post<any>(this.url, persona);
     }
     
-    public update(persona: Persona):Observable<any>{
+    public update(persona: Persona):Observable<Persona[]>{
      return this.httpClient.post<any>(this.url, persona);
     }
     

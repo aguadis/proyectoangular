@@ -13,18 +13,25 @@ export class ExperienciaComponent implements OnInit {
   
   //inicializar variables de instancia 
 
- experiencia: Experiencia[]=[]; //se llama al modelo que es un array
-  
+ experiencia: any=[]; //se llama al modelo que es un array
+ item: Experiencia[]=[];
+  ExperienciaService: any;
+  listarExperiencia: any;
+
+ 
 
 constructor(
     //Inyectar el Servicio para tener acceso en la clase a los Métodos
     private sExperiencia:ExperienciaService
     ) { }
-    
-    
 
-
-   ngOnInit(): void {
+    listarExperiencias(): void{
+      this.sExperiencia.list().subscribe(data =>{
+        this.experiencia=data;
+      });
+    }
+   
+  ngOnInit(): void {
       //Esto es almacenar en la variable de instancia los datos recuperados por el Servicio
       this.sExperiencia.list().subscribe({
         next: (v) => { 
@@ -36,7 +43,11 @@ constructor(
           };
   
         
+      
     }
+  
+        
+    
   
     
    

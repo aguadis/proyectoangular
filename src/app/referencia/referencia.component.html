@@ -1,15 +1,15 @@
 <!--referencias-->
-<div class="container text-center" >
+<div class="container-fluid text-center" >
    <h2 class="text-center mt-3 mb-4"> REFERENCIAS </h2>
    
-   <div class="row align-items-start mb-4 mt-auto"  >
+   <div class="row align-items-start mb-4 mt-auto" >
       
-      <div class="col" *ngFor="let referencia of referencia" >
+      <div class="col" *ngFor="let item of referencia" >
       
-      <h4><strong class="text-decoration-underline">{{referencia.nombre}}{{referencia.apellido}}</strong></h4>
-      <h6><strong >{{referencia.cargo}}</strong></h6>
-      <h6><strong >{{referencia.contacto}}</strong></h6>
-      <p hidden>{{referencia.id}}</p>
+      <h4><strong class="text-decoration-underline">{{item.nombre}} {{item.apellido}}</strong></h4>
+      <h6><strong >{{item.cargo}}</strong></h6>
+      <h6><strong >{{item.contacto}}</strong></h6>
+      <p hidden>{{item.id}}</p>
      </div>
   </div>
 </div>

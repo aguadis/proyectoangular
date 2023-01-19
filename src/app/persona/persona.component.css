@@ -1,6 +1,6 @@
 .banner{
    
-    background-image :[ngClass]="persona.url_banner";
+    background-image :[ngClass]="item.url_banner";
   
         margin-top: 7.5rem;
       

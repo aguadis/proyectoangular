@@ -34,15 +34,7 @@ import { ModalReferenciasComponent } from './dashboard/modal-referencias/modal-r
 import { PanelComponent } from './dashboard/panel/panel.component';
 import { PersonaComponent } from './persona/persona.component';
 import { ProyectoComponent } from './proyecto/proyecto.component';
-
-
-
-
-
-
-
-
-
+import { LogoutComponent } from './logout/logout.component';
 
 
 @NgModule({
@@ -55,7 +47,6 @@ import { ProyectoComponent } from './proyecto/proyecto.component';
         HabilidadComponent,
         ProyectoComponent,
         ContactoComponent,
-    
         DashboardComponent,
         ErrorComponent,
         IntroComponent,
@@ -75,6 +66,7 @@ import { ProyectoComponent } from './proyecto/proyecto.component';
         ModalReferenciasComponent,
         PanelComponent,
         PersonaComponent,
+        LogoutComponent,
         
       
         

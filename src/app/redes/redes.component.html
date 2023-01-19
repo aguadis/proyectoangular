@@ -1,6 +1,6 @@
 <ul class="list-group  list-group-horizontal" >
-  <div class="" *ngFor="let redes of redes">
-    <li class="list-group-item"><a href= {{redes.red}} target="_blank"><i [ngClass]="redes.clase"></i></a></li>
+  <div class="" *ngFor="let item of redes">
+    <li class="list-group-item"><a href= {{item.red}} target="_blank"><i [ngClass]="item.clase"></i></a></li>
           
   </div>
       
@@ -9,5 +9,7 @@
         <a routerLink="/login"><i class="fa-solid fa-user-lock fa-2xl" type="button">
         </i>
       </a>
-      </li>
+    </li>
+      
+      
     </ul>
