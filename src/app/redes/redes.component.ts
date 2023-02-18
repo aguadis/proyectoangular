@@ -9,10 +9,11 @@ import { RedService } from '../servicios/red.service';
 })
 export class RedesComponent implements OnInit {
  
-  red: any=[]; //se llama al modelo que es un array
+  
   item: Red[]=[];
    RedService: any;
-  redes: Red[] | undefined;
+redes: any;
+ 
   
 
  
@@ -23,11 +24,7 @@ export class RedesComponent implements OnInit {
      private sRed:RedService
      ) { }
  
-     listarRed(): void{
-       this.sRed.list().subscribe(data =>{
-         this.red=data;
-       });
-     }
+     
     
    ngOnInit(): void {
        //Esto es almacenar en la variable de instancia los datos recuperados por el Servicio

@@ -1,43 +1,147 @@
+
 <!--inicio de persona Modal -->
 <div class="modal fade" id="personaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Acerca</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Persona</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <form [formGroup]="form">
         <div class="modal-body">
-          <form name="acercaForm">
-          <!--colocar textos,imput,botones,formularios para este espacio-->
-          <div class="my-3 row">
-            <label for="text" class="col-sm-2 col-form-label">Texto acerca de mi</label>
-            <div class="col-sm-10">
-               <input type="text" class="form-control" id="acerca">
+          <section id="seccion_Persona" >
+            <div class="container fluid">
+              <div class="" *ngFor="let item of persona" class="row">
+              <div class="col-2">
+              </div>
+             <div class="col-8">
+                  <img [src]="item.foto_perfil" class="rounded-circle w-100" alt="..." title="...">
+                  <h2>{{item.nombre}}{{item.apellido}}</h2>
+                  <h4>{{item.frase}}</h4>
+                  <h5>{{item.acerca}}</h5>
+                </div>
+                 <!--lapicito rojo que se cambia al tocarlo-->
+           <button type="button" class="btn btn-sm btn-outline-warning pl-1 pr-1 m-0" (click)="cargarDetalle(item.id)">Editar
+            <i class="fa-solid fa-pen"></i>
+          </button>
+          <!--Tachico de Basura que se hace fondo rojo al tocarlo-->
+          <button type="button" class="btn btn-sm btn-outline-danger pl-1 pr-1 m-0" (click)="borrar(item.id)">Eliminar
+            <i class="fa-solid fa-trash"></i>
+          </button>
+              </div>
             </div>
-          </div>
-            <button type="button" class="btn btn-outline-success">Guardar</button>
-            <button type="button" class="btn btn-outline-danger">Eliminar</button>
-            <button type="button" class="btn btn-outline-warning">Actualizar</button>
-         <div class="my-3 row">
-          <label for="acerca" class="form-label">Imagen perfil</label>
-          <div class="col-sm-10">
-             <input class="form-control form-control-sm" id="imagen perfil" type="file">
-          </div>
-         </div>
-          <button type="button" class="btn btn-outline-success">Guardar</button>
-          <button type="button" class="btn btn-outline-danger">Eliminar</button>
-          <button type="button" class="btn btn-outline-warning">Actualizar</button>
-          </form>
-       </div>
-      
-    
-    
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+             </section>
+                  <!--esto es la validacion  renderizado condicional-->
+   <div class="input-group mb-3 bg-light" *ngIf="!!form.value.id">
+    <div class="input-group-prepend border-0">
+      <span class="input-group-text border-0" id="basic-addon1">ID:</span>
+    </div>
+    <input class="form-control outline-none border-0 bg-transparent" type="text" readonly formControlName="id">
+  </div>
+          <!--colocar textos,imput,botones,formularios para este espacio-->
+          <div class="mb-3 row">
+            <label for="formFileSm" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" formControlName="nombre" name=""
+                [ngClass]="{'is-invalid': NombreInvalido, 'is-valid': Nombrevalido}">
+
+            <!-- Se verifica si cumple con el formato -->
+            <div *ngIf="Nombre?.errors && Nombre?.touched">
+                <p *ngIf="Nombre?.hasError('required')" class="errores">
+                    Campo requerido.
+                </p>
+                <p *ngIf="Nombre?.errors?.['minlength']" class="errores">
+                    Debe ser de 2 o más caracteres.
+                </p>
+            </div>
         </div>
+
+        <div class="mb-3 row">
+          <label for="formFileSm" class="form-label">Apellido</label>
+          <input type="text" class="form-control" id="apellido" formControlName="apellido" name=""
+              [ngClass]="{'is-invalid': ApellidoInvalido, 'is-valid': ApellidoValido}">
+
+          <!-- Se verifica si cumple con el formato -->
+          <div *ngIf="Apellido?.errors && Apellido?.touched">
+              <p *ngIf="Apellido?.hasError('required')" class="errores">
+                  Campo requerido.
+              </p>
+              <p *ngIf="Apellido?.errors?.['minlength']" class="errores">
+                  Debe ser de 2 o más caracteres.
+              </p>
+          </div>
+      </div>
+
       
+        <div class="mb-3 row">
+          <label for="formFileSm" class="form-label">Banner</label>
+          <input type="text" class="form-control" id="img_banner" formControlName="url_banner" name=""
+              [ngClass]="{'is-invalid': Url_bannerInvalido, 'is-valid': Url_bannerValido}">
+
+               <!-- Se verifica si cumple con el formato -->
+               <div *ngIf="Url_banner?.errors && Url_banner?.touched">
+                <p *ngIf="Url_banner?.hasError('required')" class="errores">
+                    Campo requerido.
+                </p>
+            </div>
+        </div>
+
+      <div class="mb-3 row">
+        <label for="formFileSm" class="form-label">Imagen de Perfil</label>
+        <input type="text" class="form-control" id="img_pfp" formControlName="foto_perfil" name=""
+            [ngClass]="{'is-invalid': Foto_perfilInvalido, 'is-valid': Foto_perfilValido}">
+
+        <!-- Se verifica si cumple con el formato -->
+        <div *ngIf="Foto_perfil?.errors && Foto_perfil?.touched">
+            <p *ngIf="Foto_perfil?.hasError('required')" class="errores">
+                Campo requerido.
+            </p>
+        </div>
     </div>
+
+    <div class="mb-3 row">
+      <label for="formFileSm" class="form-label">Acerca de mi</label>
+   <textarea type="text" class="form-control" id="acerca" formControlName="acerca" name="" rows="3"
+      [ngClass]="{'is-invalid': AcercaInvalido, 'is-valid': AcercaValido}"></textarea>
+         
+         <div *ngIf="Acerca?.errors && Acerca?.touched">
+          <p *ngIf="Acerca?.hasError('required')" class="errores">
+              Campo requerido.
+          </p>
+          <p *ngIf="Acerca?.errors?.['minlength']" class="errores">
+            Debe ser de 2 o más caracteres.
+        </p>
+      </div>
+      </div>
+
+      <div class="mb-3 row">
+        <label for="formFileSm" class="form-label">Frase</label>
+        <input type="text" class="form-control" id="titulo" formControlName="frase" name=""
+            [ngClass]="{'is-invalid': FraseInvalido, 'is-valid': FraseValido}">
+
+        <!-- Se verifica si cumple con el formato -->
+        <div *ngIf="Frase?.errors && Frase?.touched">
+            <p *ngIf="Frase?.hasError('required')" class="errores">
+                Campo requerido.
+            </p>
+            <p *ngIf="Frase?.errors?.['minlength']" class="errores">
+                Debe ser de 2 o más caracteres.
+            </p>
+        </div>
     </div>
-    </div>
+
+
+           
+      <div class="modal-footer">
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Crear</button> 
+                <button type="button" class="btn btn-primary" (click)="guardar()" >GUARDAR DATOS</button>
+              </div>
+        </div>     
+</form>
+</div>
+</div>
+</div> 
+       
+      
+    
   
     <!--fin de persona modal-->

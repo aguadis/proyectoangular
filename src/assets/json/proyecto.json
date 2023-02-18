@@ -18,14 +18,14 @@
           {
            "id": 1,
            "trabajo": ".GoCode",
-           "inicio": "(Agosto 2022)",
+           "inicio": "2022-08-01",
            "puesto": "-Responsable de Proyectos"
          },
 
          {
             "id": 2,
             "trabajo": ".Secchi Maquinas De Coser y Merceria",
-            "inicio": "(Septiembre 2014)",
+            "inicio": "2014-09-20",
             "puesto": "-Dueña, doy clases de tejido,bordado y Atencion Al Publico"
          }],
 
@@ -97,18 +97,23 @@
       "proyectos": [
        { 
         "id": 1,
-        "trabajo": "Junto a un grupo de estudiantes de programacion armamos GoCode. Para desarrollar paginas web gratis a quien mas lo necesite",
-        "img": "../../assets/img/logo con margen.png"
+        "trabajo": "Junto a un grupo de estudiantes de programación en #YoProgramo, armamos GoCode.Creamos sitios web de forma gratuita a quien mas lo necesite.Nuestro objetivo es llegar a quienes necesiten impulsar su proyecto.Desde GoCode...TE AYUDAMOS A AYUDAR",
+        "img": "../../assets/img/Go Code.png"
         },
        {
         "id": 2,
         "trabajo": "Asesoria a clientes para buen manejo de maquinas de coser. Administracion en RD SERVICIOS Y MANTENIMIENTO",
-        "img": "../../assets/img/imagen merceria.jpg"
+        "img": "../../assets/img/Merceria.png"
       },
        {
         "id": 3,
         "trabajo": "Maquetado de proyecto CV en html, css, bootstrap, fotawesome. Utilizando ANGULAR, MYSQL , java.",
-        "img": "../../assets/img/imagen computadora.jpg"
+        "img": "../../assets/img/Computadora.png"
+       },
+       {
+        "id": 4,
+        "trabajo": "Junto a estudiantes de arg.Programa, SOMOS FINALISTAS DE LA HACKATON de accesibilidad organizada por la Secretaria de Economia del Conocimiento, Andis, Libertate, Tekuoia, Agencia Nacional de Discapacidad y Ministerio de Economia Argentina ",
+        "img": "../../assets/img/Hackaton.png"
        }
       ],
 

@@ -22,7 +22,7 @@ export class ProyectoService {
     }
     
     public getById(id: number):Observable<Proyecto[]>{
-      return this.httpClient.get<Proyecto[]>(this.url + '/${id}');
+      return this.httpClient.get<Proyecto[]>(this.url + `/${id}`);
     }
     
     public save(proyecto: Proyecto):Observable<Proyecto[]>{
@@ -30,11 +30,11 @@ export class ProyectoService {
     }
     
     public update(proyecto: Proyecto):Observable<Proyecto[]>{
-     return this.httpClient.post<any>(this.url, proyecto);
+     return this.httpClient.put<any>(this.url, proyecto);
     }
     
     public delete(id: number):Observable<any>{
-     return this.httpClient.delete<any>(this.url + '/${id}');
+     return this.httpClient.delete<any>(this.url + `/${id}`);
     
     }
 }

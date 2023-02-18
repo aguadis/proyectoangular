@@ -10,7 +10,7 @@ import { Persona } from '../entidades/persona';
   providedIn: 'root'
 })
 export class PersonaService {
-  listarPersonas: any;
+ 
   sPersona: any;
   persona: Persona[]=[];
    url= 'http://localhost:8080/persona';
@@ -22,7 +22,7 @@ export class PersonaService {
     }
     
     public getById(id: number):Observable<Persona[]>{
-      return this.httpClient.get<Persona[]>(this.url + '/${id}');
+      return this.httpClient.get<Persona[]>(this.url + `/${id}`);
     }
     
     public save(persona: Persona):Observable<Persona[]>{
@@ -30,11 +30,11 @@ export class PersonaService {
     }
     
     public update(persona: Persona):Observable<Persona[]>{
-     return this.httpClient.post<any>(this.url, persona);
+     return this.httpClient.put<any>(this.url, persona);
     }
     
     public delete(id: number):Observable<any>{
-     return this.httpClient.delete<any>(this.url + '/${id}');
+     return this.httpClient.delete<any>(this.url + `/${id}`);
     
     }
   

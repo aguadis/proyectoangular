@@ -10,14 +10,7 @@ import { Educacion } from '../entidades/educacion';
   providedIn: 'root'
 })
 export class EducacionService {
-  detail: any;
-  crear: any;
-  
-  onLoadModal() {
-    
-  }
-  
-   sEducacion: any;
+  sEducacion: any;
   educacion: Educacion[]=[];
   url= 'http://localhost:8080/educacion';
 

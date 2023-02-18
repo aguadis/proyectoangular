@@ -1,26 +1,3 @@
-<section id="modal-Experiencia" >
-
-  <div class="container fluid">
-    <!--button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Crear</button-->
-    <div class=""*ngFor="let experiencia of experiencia" class="row">
-      <div class="col-2">
-      </div>
-      <div class="col-8">
-        <div class="g-col-8 p-5  border-start-3 rounded-end"  >
-          <h4><strong class="text-decoration-underline" > EXPERIENCIA </strong></h4>
-         
-              <h5>{{ experiencia.trabajo}} {{experiencia.inicio}}</h5>
-             <h6>{{ experiencia.puesto}}</h6>
-        </div>
-        </div>
-     <div class="col-2">
-      
-     </div>
-     </div>
-    </div> 
-  
-   </section>  
-   
 <!--inicio de experiencia Modal -->
 <div class="modal fade" id="experienciaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -29,29 +6,64 @@
           <h5 class="modal-title" id="exampleModalLabel"> Experiencia</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+
+        <form [formGroup]="form">
         <div class="modal-body">
-          <form>
+          <section id="seccion-Experiencia">
+            <div class="container fluid">
+              
+              <!--button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Crear</button-->
+              <div class="" *ngFor="let item of experiencia" class="row">
+                <div class="col-2">
+                </div>
+                <div class="col-8">
+                  <h5>{{ item.trabajo}} {{item.inicio | date: "dd-MM-yyyy"}}</h5>
+                  <h6>{{ item.puesto}}</h6>
+                  </div>
+                   <!--lapicito rojo que se cambia al tocarlo-->
+           <button type="button" class="btn btn-sm btn-outline-warning pl-1 pr-1 m-0" (click)="cargarDetalle(item.id)">Editar
+            <i class="fa-solid fa-pen"></i>
+          </button>
+          <!--Tachico de Basura que se hace fondo rojo al tocarlo-->
+          <button type="button" class="btn btn-sm btn-outline-danger pl-1 pr-1 m-0" (click)="borrar(item.id)">Eliminar
+            <i class="fa-solid fa-trash"></i>
+          </button>
+         </div>
+      </div> 
+      
+  </section> 
+        
+           <!--esto es la validacion  renderizado condicional-->
+   <div class="input-group mb-3 bg-light" *ngIf="!!form.value.id">
+    <div class="input-group-prepend border-0">
+      <span class="input-group-text border-0" id="basic-addon1">ID:</span>
+    </div>
+    <input class="form-control outline-none border-0 bg-transparent" type="text" readonly formControlName="id">
+  </div>
+        <!--colocar textos,imput,botones,formularios para este espacio-->
           <div>
-            <label for="nivel"><strong>Trabajo</strong></label>
+            <label for="trabajo"><strong>Trabajo</strong></label>
             <input type="text" name="" class="form-control" id="trabajo" formControlName="trabajo">
             <input type="hidden" name="" id="id">
-            </div>
-            <div>
-            <label for="nivel"><strong>Inicio</strong></label>
+          </div>
+          <div>
+            <label for="inicio"><strong>Inicio</strong></label>
             <input type="text" name="" class="form-control" id="inicio" formControlName="inicio">
-            </div>
-            <div>
-              <label for="nivel"><strong>Puesto</strong></label>
-              <input type="text" name="" class="form-control" id="puesto" formControlName="puesto">
-              </div>
+          </div>
+          <div>
+            <label for="puesto"><strong>Puesto</strong></label>
+            <input type="text" name="" class="form-control" id="puesto" formControlName="puesto">
+          </div>
               <div class="modal-footer">
-      
-    </div>
-  </form>
-
+                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Crear</button>
+                <button type="button" class="btn btn-primary" (click)="guardar()" >GUARDAR DATOS</button>
+              </div>
+      </div>
+   </form>
 </div>
-</div>          
-           
+</div>
+</div>  
+     <!--fin de experiencia Modal -->      
            
           
                 

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Contacto } from 'src/app/entidades/contacto';
+import { ContactoService } from 'src/app/servicios/contacto.service';
 
 @Component({
   selector: 'app-modal-contacto',
@@ -6,10 +9,93 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./modal-contacto.component.css']
 })
 export class ModalContactoComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+  form: FormGroup;
+  item: Contacto[] = [];
+  contacto: any;
+ id?:number;
+ 
+   
+  constructor(private formBuilder: FormBuilder, private sContacto: ContactoService) { 
+  
+  this.form = this.formBuilder.group({
+    correo: ['', [Validators.required]],
+    telefono: ['', [Validators.required]],
+    img: ['', [Validators.required]],
+    frase: ['', [Validators.required]],
+    titulo: ['', [Validators.required]],
+    id: [''],
+    })
   }
+  ngOnInit(): void {
+    this.cargarContacto();
+  }
+
+  onLoadModal(item:any){
+    this.form.get("correo")?.setValue(item.correo);
+    this.form.get("telefono")?.setValue(item.telefono);
+    this.form.get("img")?.setValue(item.img);
+    this.form.get("frase")?.setValue(item.frase);
+    this.form.get("titulo")?.setValue(item.titulo);
+    this.form.get("id")?.setValue(item.id);
+  }
+
+  cargarContacto(): void {
+    this.sContacto.list().subscribe(
+      data => {
+        this.contacto = data;
+  }
+    )
+  }
+
+  cargarDetalle(id: number){
+    this.sContacto.getById(id).subscribe(
+      {
+        next: (data: { [key: string]: any; }) => {
+          this.form.patchValue(data);
+        },
+        error: (e: any) => {
+          console.error(e)
+          alert("error al modificar")
+        },
+        complete: () => console.info('complete aqui')
+      }
+    )
+  }
+
+  guardar() {
+    console.log("FUNCIONA!!!")
+    let contacto = this.form.value;
+    console.log()
+    if (contacto.id == '') {
+      this.sContacto.save(contacto).subscribe(
+        (      data: any) => {
+  alert("Su nueva Educación fue añadida correctamente");
+          this.cargarContacto();
+          this.form.reset();
+        }
+      )
+    } else {
+      this.sContacto.save(contacto).subscribe(
+        (      data: any) => {
+          alert("Educacion editada!");
+          this.cargarContacto();
+          this.form.reset();
+        }
+      )
+    }
+  }
+ 
+  borrar(id: number) {
+    this.sContacto.delete(id).subscribe(
+  db => {
+    alert("se pudo eliminar satisfactoriamente")
+    this.cargarContacto();
+  },
+  error => {
+  alert("No se pudo eliminar")
+  })
+  }
+  
+
 
 }

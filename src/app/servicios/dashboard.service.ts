@@ -8,19 +8,6 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
   providedIn: 'root'
 })
 export class DashboardService {
-  sDashboard: any;
-  dashboard: any;
-  //obtenerDatosDashboard() {
-    //this.sDashboard.obtenerDatosDashboard().subscribe((data: string) =>{
-     // console.log("Dashboard" + data);
-      
-      
-        //}, (error: any) => console.log(error));
-      
+ 
   }
-  //url= 'http://localhost:8080/'
-
-  //constructor(private httpClient:HttpClient) { }
-
-
-//}
+  

@@ -53,10 +53,10 @@ cargarEducacion(): void {
 cargarDetalle(id: number){
   this.sEducacion.getById(id).subscribe(
     {
-      next: (data: { [key: string]: any; }) => {
-        this.form.patchValue(data);
+      next: (data) => {
+        this.form.setValue(data);
       },
-      error: (e: any) => {
+      error: (e) => {
         console.error(e)
         alert("error al modificar")
       },
@@ -109,90 +109,6 @@ alert("No se pudo eliminar")
 
 
 
-
-
-
-
-
-//guardarEducacion() {
-  
-  
-  //let estudio = this.form.value;
-
- // if (estudio.id == '') {
-    //this.sEducacion.save(estudio).subscribe(
-     // data => {
-        //alert("Su nueva Educación fue añadida correctamente");
-        //this.cargarEducacion();
-        //this.form.reset();
-      //},
-     // error => {
-        //alert("Su nueva Educación fue añadida correctamente");
-        //this.cargarEducacion();
-        //this.form.reset();
-        
-     // }
-    //)
- // } else {
-  //  this.sEducacion.update(estudio.id, estudio).subscribe(
-    //  data => {
-      //  alert('Educación editada correctamente');
-      ///  this.cargarEducacion();
-       // this.form.reset();
-      //},
-      //error => {
-       // alert('Educación editada correctamente');
-       // this.cargarEducacion();
-       // this.form.reset();
-     // }
-   // )
- // }
-//}
- // cargarEducacion() {
-  //  throw new Error('Method not implemented.');
- // }
-
-//eliminarEducacion(id: number) {
-//  this.sEducacion.delete(id).subscribe(
-  //  data => {
-   //   alert("se pudo eliminar satisfactoriamente");
-     // this.cargarEducacion();
-     // this.form.reset();
-   // },
-   // error => {
-     // alert("se pudo eliminar satisfactoriamente");
-     // this.cargarEducacion();
-     // this.form.reset();
-   // }
- // )
-//}
-
-    
-    
-  
-//}
- 
-  //llamar al servicio y enviar los datos.
-  //eliminarEducacion(id:number){
-   // alert("El registro a eliminar es: " + id);
- // }
-//}
-    
-  
-
-
-
-//alert("Registro a modificar" + this.form.get("id")?.value);
-
-
-
-
-
-
-
- 
-  
-    
 
 
 

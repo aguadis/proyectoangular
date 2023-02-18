@@ -21,7 +21,7 @@ export class ContactoService {
     }
     
     public getById(id: number):Observable<Contacto[]>{
-      return this.httpClient.get<Contacto[]>(this.url + '/${id}');
+      return this.httpClient.get<Contacto[]>(this.url +  `/${id}`);
     }
     
     public save(contacto: Contacto):Observable<Contacto[]>{
@@ -29,11 +29,11 @@ export class ContactoService {
     }
     
     public update(contacto: Contacto):Observable<Contacto[]>{
-     return this.httpClient.post<any>(this.url, contacto);
+     return this.httpClient.put<any>(this.url, contacto);
     }
     
     public delete(id: number):Observable<any>{
-     return this.httpClient.delete<any>(this.url + '/${id}');
+     return this.httpClient.delete<any>(this.url +  `/${id}`);
     
     }
 }

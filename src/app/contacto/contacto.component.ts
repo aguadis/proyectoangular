@@ -19,15 +19,10 @@ export class ContactoComponent implements OnInit {
  
  constructor(
      //Inyectar el Servicio para tener acceso en la clase a los Métodos
-     private sContacto:ContactoService
-     ) { }
+     private sContacto:ContactoService) { }
   
  
-     listarContacto(): void{
-       this.sContacto.list().subscribe(data =>{
-         this.contacto=data;
-       });
-     }
+     
      ngOnInit(): void {
       //Esto es almacenar en la variable de instancia los datos recuperados por el Servicio
       this.sContacto.list().subscribe({

@@ -2,8 +2,8 @@
 <div class="g-col-8 p-5  border-start-3 rounded-end">
   <h4><strong class="text-decoration-underline">EDUCACION</strong></h4>
   <div class="" *ngFor="let item of educacion" class="row"> 
-     <h5>{{item.nivel}} {{item.inicio}}</h5> 
-     <h6>{{item.estudio}} {{item.fin}} </h6>
+     <h5>{{item.nivel}} {{item.inicio | date: "dd-MM-yyyy"}}</h5> 
+     <h6>{{item.estudio}} {{item.fin | date: "dd-MM-yyyy"}} </h6>
 </div>
 </div>         
     

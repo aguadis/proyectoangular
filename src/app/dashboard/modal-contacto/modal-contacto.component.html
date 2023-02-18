@@ -6,69 +6,81 @@
           <h5 class="modal-title" id="exampleModalLabel">Contacto</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <form [formGroup]="form">
         <div class="modal-body">
-          <form name="contactoForm">
-          <!--colocar textos,imput,botones,formularios para este espacio-->
-          <div class="my-3 row">
-            <label for="form-File-sm" class="form-label">Imagen QR</label>
-            <div class="col-sm-10">
-               <input class="form-control form-control-sm" id="formFile-sm" type="file">
-            </div>
+         <!--colocar textos,imput,botones,formularios para este espacio-->
+         <section id="seccion_Contacto" >
+          <div class="container fluid">
+           
+            <div class="" *ngFor="let item of contacto" class="row" >
+              <div class="col-2">
+              </div>
+              <div class="col-8">
+              <h3><strong>{{item.titulo}}</strong></h3>
+              <h5>{{item.frase}}</h5>
+              <img [src]="item.img">
+              <h4>{{item.correo}}</h4>
+              <h4>{{item.telefono}}</h4>
+              </div>
+
+        <!--lapicito rojo que se cambia al tocarlo-->
+         <button type="button" class="btn btn-sm btn-outline-warning pl-1 pr-1 m-0" (click)="cargarDetalle(item.id)">Editar
+          <i class="fa-solid fa-pen"></i>
+        </button>
+        <!--Tachico de Basura que se hace fondo rojo al tocarlo-->
+        <button type="button" class="btn btn-sm btn-outline-danger pl-1 pr-1 m-0" (click)="borrar(item.id)">Eliminar
+          <i class="fa-solid fa-trash"></i>
+        </button>
+          <!--button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onLoadModal(item)">Editar</button>
+          <button class="btn btn-danger" (click)="eliminarEducacion(item.id)">Eliminar</button-->
           </div>
-            <button type="button" class="btn btn-outline-success">Guardar</button>
-            <button type="button" class="btn btn-outline-danger">Eliminar</button>
-            <button type="button" class="btn btn-outline-warning">Actualizar</button>
-            </form>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-        </div>
-      </div>
+       </section>  
+            <!--esto es la validacion  renderizado condicional-->
+   <div class="input-group mb-3 bg-light" *ngIf="!!form.value.id">
+    <div class="input-group-prepend border-0">
+      <span class="input-group-text border-0" id="basic-addon1">ID:</span>
     </div>
-    </div><!--fin de contacto modal-->
+    <input class="form-control outline-none border-0 bg-transparent" type="text" readonly formControlName="id">
+  </div>
+<!--colocar textos,imput,botones,formularios para este espacio-->
+<div>
+  <label for="correo" class="form-label"><strong>Correo</strong></label>
+  <input type="text" name="" class="form-control" id="correo" formControlName="correo">
+  <input type="hidden" name="" id="id">
+</div>
+
+<div>
+  <label for="telefono"><strong>telefono</strong></label>
+  <input type="text" name="" class="form-control" id="telefono" formControlName="telefono">
+</div>
+<div>
+  <label for="img"><strong>Imagen</strong></label>
+  <input class="form-control" id="img" type="file" formControlName="img">
+</div>  
+
+<div>
+  <label for="frase"><strong>Frase</strong></label>
+  <input type="text" name="" class="form-control" id="frase"  formControlName="frase">
+</div>
+
+<div>
+  <label for="titulo"><strong>Titulo</strong></label>
+  <input type="text" name="" class="form-control" id="titulo"  formControlName="titulo">
+</div>
+
+<div class="modal-footer">
+  <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Crear</button>
+  <button type="button" class="btn btn-primary" (click)="guardar()" >GUARDAR DATOS</button>
+</div>
+</div>
+</form>
+</div>
+    </div>
+</div>        
+  <!--fin de contacto modal-->
 
 
-    <!--form class="row g-3">
-      <div class="col-md-6">
-        <label for="inputEmail4" class="form-label">Email</label>
-        <input type="email" class="form-control" id="inputEmail4">
-      </div>
-      <div class="col-md-6">
-        <label for="inputPassword4" class="form-label">Password</label>
-        <input type="password" class="form-control" id="inputPassword4">
-      </div>
-      <div class="col-12">
-        <label for="inputAddress" class="form-label">Address</label>
-        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-      </div>
-      <div class="col-12">
-        <label for="inputAddress2" class="form-label">Address 2</label>
-        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-      </div>
-      <div class="col-md-6">
-        <label for="inputCity" class="form-label">City</label>
-        <input type="text" class="form-control" id="inputCity">
-      </div>
-      <div class="col-md-4">
-        <label for="inputState" class="form-label">State</label>
-        <select id="inputState" class="form-select">
-          <option selected>Choose...</option>
-          <option>...</option>
-        </select>
-      </div>
-      <div class="col-md-2">
-        <label for="inputZip" class="form-label">Zip</label>
-        <input type="text" class="form-control" id="inputZip">
-      </div>
-      <div class="col-12">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="gridCheck">
-          <label class="form-check-label" for="gridCheck">
-            Check me out
-          </label>
-        </div>
-      </div>
-      <div class="col-12">
-        <button type="submit" class="btn btn-primary">Sign in</button>
-      </div>
-    </form-->
+    
+      
+      

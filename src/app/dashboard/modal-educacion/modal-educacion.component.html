@@ -8,20 +8,17 @@
         <h5 class="modal-title" id="exampleModalLabel">Educacion</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      
-      <form [formGroup]="form">
-        
-        <div class="modal-body">
-        
+    <form [formGroup]="form">
+      <div class="modal-body">
         <section id="seccion_Educacion" >
           <div class="container fluid">
-            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Crear</button>
+           
             <div class=""*ngFor="let item of educacion" class="row">
               <div class="col-2">
               </div>
               <div class="col-8">
-                <h5>{{item.nivel}} {{item.inicio}}</h5> 
-             <h6>{{item.estudio}} {{item.fin}} </h6>
+                <h5>{{item.nivel}} {{item.inicio | date: "dd-MM-yyyy"}}</h5> 
+             <h6>{{item.estudio}} {{item.fin | date: "dd-MM-yyyy"}} </h6>
             </div>
 
             
@@ -50,8 +47,7 @@
      <!--colocar textos,imput,botones,formularios para este espacio-->
     <div>
     <label for="nivel" class="form-label"><strong>Nivel</strong></label>
-    <input type="text" name="" class="form-control" id="nivel"   formControlName="nivel">
-    
+    <input type="text" name="" class="form-control" id="nivel" formControlName="nivel">
     <input type="hidden" name="" id="id">
     </div>
     
@@ -73,14 +69,14 @@
     
   
       <div class="modal-footer">
-        <button type="button" class="btn btn-black" (click)="form.reset()">CERRAR</button>
+        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Crear</button>
         <button type="button" class="btn btn-primary" (click)="guardar()" >GUARDAR DATOS</button>
       </div>
     </div>
   </form>
   </div>
-
-
+  </div>
+</div>
   <!--fin de educacion modal-->
     
     

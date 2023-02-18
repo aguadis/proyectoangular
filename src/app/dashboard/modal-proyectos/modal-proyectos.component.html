@@ -1,24 +1,3 @@
-
- 
-  <div class="container fluid">
-    <!--button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Crear</button-->
-    <div class=""*ngFor="let proyectos of proyectos" class="row">
-      <div class="card g-col-4 p-5 m-4   border-start-3 rounded-start" style="width: 25rem;" >
-        <img [src]="proyectos.img" class="rounded float-start" width="90%" alt="...">
-        <div class="card-body" >
-           <div class="col">
-           <p class="card-text ">{{proyectos.trabajo}}</p>
-        </div>
-        </div>
-     <div class="col-2">
-      
-     </div>
-     </div>
-    </div> 
-  </div>
-   
-
-
 <!--inicio de proyectos Modal -->
 <div class="modal fade" id="proyectosModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -27,25 +6,57 @@
           <h5 class="modal-title" id="exampleModalLabel">Proyectos</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <form [formGroup]="form">
         <div class="modal-body">
-          <form name="proyectosForm">
+          <section id="seccion_proyecto" >
+            <div class="container fluid">
+              
+                <div class=""  *ngFor="let item of proyecto" class="row">
+                  <div class="col-2">
+                  </div>
+                  <div class="col-8">
+                  <img [src]="item.img" class="card-img-top" width="100%" alt="20%">
+                    <p>{{item.trabajo}}</p>
+                      </div>
+
+                   <!--lapicito rojo que se cambia al tocarlo-->
+           <button type="button" class="btn btn-sm btn-outline-warning pl-1 pr-1 m-0" (click)="cargarDetalle(item.id)">Editar
+            <i class="fa-solid fa-pen"></i>
+          </button>
+          <!--Tachico de Basura que se hace fondo rojo al tocarlo-->
+          <button type="button" class="btn btn-sm btn-outline-danger pl-1 pr-1 m-0" (click)="borrar(item.id)">Eliminar
+            <i class="fa-solid fa-trash"></i>
+          </button>
+         </div>
+        </div>
+      </section>
+
+      <div class="input-group mb-3 bg-light" *ngIf="!!form.value.id">
+        <div class="input-group-prepend border-0">
+          <span class="input-group-text border-0" id="basic-addon1">ID:</span>
+        </div>
+        <input class="form-control outline-none border-0 bg-transparent" type="text" readonly formControlName="id">
+      </div>
+    
           <!--colocar textos,imput,botones,formularios para este espacio-->
           <div>
-            <label for="nivel"><strong>trabajo</strong></label>
+            <label for="trabajo"><strong>Trabajo</strong></label>
             <input type="text" name="" class="form-control" id="trabajo" formControlName="trabajo">
             <input type="hidden" name="" id="id">
             </div>
             <div>
-            <label for="nivel"><strong>Imagen</strong></label>
-            <input type="text" name="" class="form-control" id="trabajo" formControlName="img">
-            </div>
+            <label for="img"><strong>Imagen</strong></label>
+            <input class="form-control" id="img" type="file" formControlName="img">
+          </div>
             <div class="modal-footer">
-                
-              </div>
+              <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Crear</button>
+              <button type="button" class="btn btn-primary" (click)="guardar()" >GUARDAR DATOS</button>
+        </div>
+        </div>
             </form>
           </div>
-          </div>
-
+    </div>
+</div>
 
           
     <!--fin de proyectos modal-->

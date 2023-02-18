@@ -8,9 +8,10 @@ import { Red } from '../entidades/red';
   providedIn: 'root'
 })
 export class RedService {
+  sRed: any;
+  item: Red[]=[];
+
   
-  sExperiencia: any;
-  red: Red[]=[];
    url= 'http://localhost:8080/red';
   
  constructor(private httpClient: HttpClient) { }
@@ -20,19 +21,19 @@ export class RedService {
     }
     
     public getById(id: number):Observable<Red[]>{
-      return this.httpClient.get<Red[]>(this.url + '/${id}');
+      return this.httpClient.get<Red[]>(this.url + `/${id}`);
     }
     
     public save(red: Red):Observable<Red[]>{
      return this.httpClient.post<any>(this.url, red);
     }
     
-    public update(red: Red):Observable<Red[]>{
-     return this.httpClient.post<any>(this.url, red);
+    public update(id:number, red: Red):Observable<Red[]>{
+     return this.httpClient.put<any>(this.url, red);
     }
     
     public delete(id: number):Observable<any>{
-     return this.httpClient.delete<any>(this.url + '/${id}');
+     return this.httpClient.delete<any>(this.url + `/${id}`);
     
     }
 }

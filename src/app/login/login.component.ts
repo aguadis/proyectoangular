@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProyectoService } from '../servicios/proyecto.service';
+import { ProyectosService } from '../servicios/proyectos.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { AutenticacionService } from '../servicios/autenticacion.service';
@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
  
 
   // Inyectar en el constructor el formBuilder
-  constructor(public _servicio: ProyectoService,  private formBuilder: FormBuilder, private autenticacionService:AutenticacionService, private ruta:Router){ 
+  constructor(public _servicio: ProyectosService,  private formBuilder: FormBuilder, private autenticacionService:AutenticacionService, private ruta:Router){ 
     ///Creamos el grupo de controles para el formulario de login
     this.form= this.formBuilder.group({
       email:['', [Validators.required, Validators.email]],

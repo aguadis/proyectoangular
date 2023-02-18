@@ -10,8 +10,8 @@ export class ProyectosComponent implements OnInit {
   proyectos: Proyectos[]=[];
   
   form: any;
-  Img: any;
-  Trabajo: any;
+  img: any;
+  trabajo: any;
 //inicializar variables de instancia 
 
 

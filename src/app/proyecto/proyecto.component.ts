@@ -21,11 +21,7 @@ constructor(
     private sProyecto:ProyectoService
     ) { }
 
-    listarProyecto(): void{
-      this.sProyecto.list().subscribe(data =>{
-        this.proyecto=data;
-      });
-    }
+   
    
   ngOnInit(): void {
       //Esto es almacenar en la variable de instancia los datos recuperados por el Servicio

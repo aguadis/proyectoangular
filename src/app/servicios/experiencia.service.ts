@@ -11,7 +11,8 @@ import { Experiencia } from '../entidades/experiencia';
 export class ExperienciaService {
   sExperiencia: any;
   experiencia: Experiencia[]=[];
-   url= 'http://localhost:8080/experiencia';
+    
+url= 'http://localhost:8080/experiencia';
   
  constructor(private httpClient: HttpClient) { }
 
@@ -20,19 +21,19 @@ export class ExperienciaService {
     }
     
     public getById(id: number):Observable<Experiencia[]>{
-      return this.httpClient.get<Experiencia[]>(this.url + '/${id}');
+      return this.httpClient.get<Experiencia[]>(this.url+ `/${id}`);
     }
     
     public save(experiencia: Experiencia):Observable<Experiencia[]>{
      return this.httpClient.post<any>(this.url, experiencia);
     }
     
-    public update(experiencia: Experiencia):Observable<Experiencia[]>{
+    public update(id:number, experiencia: Experiencia):Observable<Experiencia[]>{
      return this.httpClient.put<any>(this.url, experiencia);
     }
     
     public delete(id: number):Observable<any>{
-     return this.httpClient.delete<any>(this.url + '/${id}');
+     return this.httpClient.delete<any>(this.url + `/${id}`);
     
     }
 }

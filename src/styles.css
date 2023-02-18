@@ -34,6 +34,11 @@
    
  }
 
+ /* Estilos CSS aquí para controlar el aspecto del menú de accesibilidad */
+ #accessibility-menu {
+    display: none;
+  }
+
 
 
 
