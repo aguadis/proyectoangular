@@ -1,7 +1,20 @@
 # Proyectoangular
-# Mi Proyecto Angular
 
-Este proyecto es una aplicación web construida con Angular. La aplicación utiliza la API de Github para mostrar información de los usuarios y repositorios de Github.
+Este proyecto es una aplicación web construida con Angular 14.2.5. La aplicación utiliza la API de Github para mostrar información de los usuarios y repositorios de Github.
+
+El proyecto es responsive basado en Bootstrap 5.2, es de uso muy facil. Se adapta para uso en moviles y tambien el equipos de escritorio.
+
+Use el CDN DE BOOTSTRAP "https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+
+Para los iconos use fontawesome "https://kit.fontawesome.com/8a5a484aee.js"
+
+Tengo una pagina de dashboard,para adminitracion  https://github.com/aguadis/proyectoangular/tree/master/src/app/dashboard
+
+Tengo un login solo para el administrador https://github.com/aguadis/proyectoangular/tree/master/src/app/login
+
+Hice una wiki para alojar pequeñas cosas. pero todavia no la se usar https://github.com/aguadis/proyectoangular/wiki/_new
+
+
 
 ## Instalación
 
