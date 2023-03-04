@@ -10,6 +10,7 @@ import { Persona } from '../entidades/persona';
   providedIn: 'root'
 })
 export class PersonaService {
+  
  
   sPersona: any;
   persona: Persona[]=[];

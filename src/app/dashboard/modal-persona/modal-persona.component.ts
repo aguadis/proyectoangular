@@ -35,6 +35,8 @@ FraseInvalido: any;
 FraseValido: any;
 Frase: any;
   
+ 
+  
 
  constructor(
   //Inyectar el Servicio para tener acceso en la clase a los Métodos
@@ -116,19 +118,23 @@ Frase: any;
     }
   }
       
-    borrar(id: number) {
-    this.sPersona.delete(id).subscribe(
-  db => {
-    alert("se pudo eliminar satisfactoriamente")
-    this.cargarPersona();
-  },
-  error => {
-  alert("No se pudo eliminar")
-  })
+  borrar(id: number): void {
+    if (confirm('¿Está seguro que desea eliminar este elemento?')) {
+      this.sPersona.delete(id).subscribe(
+        (        data: any) => {
+          this.cargarPersona();
+        },
+                error => {
+                  alert("No se pudo eliminar")
+        }
+      );
+    }
   }
-  
+  reset(): void {
+    this.form.reset();
+    this.form.get('id')?.setValue('');
   }
-  
 
 
+}
   

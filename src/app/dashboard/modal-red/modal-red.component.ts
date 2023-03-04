@@ -3,8 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Red } from 'src/app/entidades/red';
 import { RedService } from 'src/app/servicios/red.service';
 
-
-
 @Component({
   selector: 'app-modal-red',
   templateUrl: './modal-red.component.html',
@@ -12,93 +10,90 @@ import { RedService } from 'src/app/servicios/red.service';
 })
 export class ModalRedComponent implements OnInit {
   form: FormGroup;
-  item: Red[]=[];
+ redes: any;
   id?:number;
-  redes: any;
-  
- 
-  constructor(private formBuilder: FormBuilder, private sRed:RedService){
-//Creamos el grupo de controles para el formulario 
-
-this.form = this.formBuilder.group({
-  clase: ['', [Validators.required]],
-  red: ['', [Validators.required]],
-  id: [''],
-})
-
+  item: Red[] = [];
+  sRed: any;
+  constructor(private formBuilder: FormBuilder, private redService: RedService) {
+    this.form = this.formBuilder.group({
+      id: [''],
+      clase: ['', [Validators.required]],
+      red: ['', [Validators.required]],
+    });
   }
+
   ngOnInit(): void {
-   this.cargarRedes();
+    this.cargarRedes();
   }
+// definimos el arreglo de items
 
-  onLoadModal(item:any){
-    this.form.get("clase")?.setValue(item.clase);
-    this.form.get("red")?.setValue(item.red);
-    this.form.get("id")?.setValue(item.id);
+
+
+  onLoadModal(item: any): void {
+    
   }
 
   cargarRedes(): void {
-    this.sRed.list().subscribe(
+    this.redService.list().subscribe(
       data => {
         this.redes = data;
       }
-    )
-  }
-  
-  cargarDetalle(id: number) {
-    this.sRed.getById(id).subscribe(
-      {
-        next: (data) => {
-          this.form.setValue(data);
-        },
-        error: (e) => {
-          console.error(e)
-          alert("error al modificar")
-        },
-        complete: () => console.info('complete aqui')
-      }
-    )
+    );
   }
 
-  guardar() {
-    console.log("FUNCIONA!!!")
-    let redes = this.form.value;
-    console.log()
-    if (redes.id == '') {
-      this.sRed.save(redes).subscribe(
-        (      data: any) => {
-  alert("Su nueva Red fue añadida correctamente");
+  guardar(): void {
+    if (this.form.invalid) {
+      return;
+    }
+
+    const red: Red = {
+      id: this.form.value.id,
+      clase: this.form.value.clase,
+      red: this.form.value.red
+    };
+
+    if (red.id) {
+      this.redService.save(red).subscribe(
+        data => {
           this.cargarRedes();
-          this.form.reset();
+          this.reset();
+        },
+        error => {
+          console.log(error);
         }
-      )
+      );
     } else {
-      this.sRed.save(redes).subscribe(
-        (      data: any) => {
-          alert("Red editada!");
+      this.redService.save(red).subscribe(
+        data => {
           this.cargarRedes();
-          this.form.reset();
+          this.reset();
+        },
+        error => {
+          console.log(error);
         }
-      )
+      );
     }
   }
       
-  borrar(id: number) {
-    this.sRed.delete(id).subscribe(
-  db => {
-    alert("se pudo eliminar satisfactoriamente")
-    this.cargarRedes();
-  },
-  error => {
-  alert("No se pudo eliminar")
-  })
+
+  borrar(id: number): void {
+    if (confirm('¿Está seguro que desea eliminar este elemento?')) {
+      this.redService.delete(id).subscribe(
+        data => {
+          this.cargarRedes();
+        },
+        error => {
+          console.log(error);
+        }
+      );
+    }
   }
 
- }
-   
+  reset(): void {
+    this.form.reset();
+    this.form.get('id')?.setValue('');
+  }
+}
 
   
   
-
-
-

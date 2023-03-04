@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
+import { AutenticacionService } from '../servicios/autenticacion.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,20 +8,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  
-  constructor()
-    //Inyectar el Servicio para tener acceso en la clase a los Métodos
-   
-   { }
+
+  constructor(
+    private autenticacionService: AutenticacionService,
+    private router: Router
+  ) { }
+
   ngOnInit(): void {
-   
+     
   }
-  
-
-
-
-  
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
 
 
   
