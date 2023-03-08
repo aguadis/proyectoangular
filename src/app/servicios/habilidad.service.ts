@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Habilidad } from '../entidades/habilidad';
 
 
@@ -10,7 +11,7 @@ import { Habilidad } from '../entidades/habilidad';
 export class HabilidadService {
   sHabilidad: any;
   habilidad: Habilidad[]=[];
-  url= 'https://portfolio-cintia-necol.onrender.com/habilidad';
+  url=  'https://portfolio-cintia-necol.onrender.com/habilidad';
 
   constructor(private httpClient: HttpClient) { }
 

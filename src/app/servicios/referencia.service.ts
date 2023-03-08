@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Referencia } from '../entidades/referencia';
 
 
@@ -11,7 +12,7 @@ export class ReferenciaService {
   
   sReferencia: any;
   referencia: Referencia[]=[];
-  url= 'https://portfolio-cintia-necol.onrender.com/referencia';
+  url=  'https://portfolio-cintia-necol.onrender.com/referencia';
 
   
  constructor(private httpClient: HttpClient) { }

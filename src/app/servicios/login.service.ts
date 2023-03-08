@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { LoginComponent } from '../login/login.component';
 
 @Injectable({
@@ -17,7 +18,7 @@ export class LoginService {
         }, (error: any) => console.log(error));
       
   }
-  url= 'https://portfolio-cintia-necol.onrender.com/login';
+  url=  'https://portfolio-cintia-necol.onrender.com/login';
 
   constructor(private httpClient:HttpClient) { }
 

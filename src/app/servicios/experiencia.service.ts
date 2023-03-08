@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 // es para suscribirse y que se reciba respuesta de forma asincronica
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 //es para poder hacer peticiones
 import { HttpClient } from '@angular/common/http';
 import { Experiencia } from '../entidades/experiencia';
@@ -12,7 +13,7 @@ export class ExperienciaService {
   sExperiencia: any;
   experiencia: Experiencia[]=[];
     
-url= 'https://portfolio-cintia-necol.onrender.com/experiencia';
+  url=  'https://portfolio-cintia-necol.onrender.com/experiencia';
   
  constructor(private httpClient: HttpClient) { }
 

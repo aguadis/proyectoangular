@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
+import { environment } from 'src/environments/environment';
 import { Educacion } from '../entidades/educacion';
 
 
@@ -12,7 +12,7 @@ import { Educacion } from '../entidades/educacion';
 export class EducacionService {
   sEducacion: any;
   educacion: Educacion[]=[];
-  url= 'https://portfolio-cintia-necol.onrender.com/educacion';
+  url=  'https://portfolio-cintia-necol.onrender.com/educacion';
 
   constructor(private httpClient: HttpClient) { }
 

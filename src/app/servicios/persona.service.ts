@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Persona } from '../entidades/persona';
 
 
@@ -11,10 +12,10 @@ import { Persona } from '../entidades/persona';
 })
 export class PersonaService {
   
- 
+  
   sPersona: any;
   persona: Persona[]=[];
-   url= 'https://portfolio-cintia-necol.onrender.com/persona';
+  url=  'https://portfolio-cintia-necol.onrender.com/persona';
   
  constructor(private httpClient: HttpClient) { }
 

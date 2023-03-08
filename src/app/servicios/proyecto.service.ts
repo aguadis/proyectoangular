@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Proyecto } from '../entidades/proyecto';
 
 
@@ -11,7 +12,7 @@ import { Proyecto } from '../entidades/proyecto';
 export class ProyectoService {
   sProyecto: any;
   proyecto: Proyecto[]=[];
-  url= 'https://portfolio-cintia-necol.onrender.com/proyecto';
+  url=  'https://portfolio-cintia-necol.onrender.com/proyecto';
   
  
 

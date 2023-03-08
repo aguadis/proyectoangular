@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Red } from '../entidades/red';
 
 
@@ -12,7 +13,7 @@ export class RedService {
   item: Red[]=[];
 
   
-   url= 'https://portfolio-cintia-necol.onrender.com/red';
+  url=  'https://portfolio-cintia-necol.onrender.com/red';
   
  constructor(private httpClient: HttpClient) { }
 

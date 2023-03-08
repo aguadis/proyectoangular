@@ -2,7 +2,7 @@
 
 Este proyecto es una aplicación web construida con Angular 14.2.5. La aplicación utiliza la API de Github para mostrar información de los usuarios y repositorios de Github.
 
-El proyecto es responsive basado en Bootstrap 5.2, es de uso muy facil. Se adapta para uso en moviles y tambien el equipos de escritorio.
+El proyecto es responsive basado en Bootstrap 5.2, es de uso muy facil. Se adapta para uso en moviles y tambien en equipos de escritorio.
 
 Use el CDN DE BOOTSTRAP "https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
 
