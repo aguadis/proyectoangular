@@ -11,7 +11,7 @@ import { Proyecto } from '../entidades/proyecto';
 export class ProyectoService {
   sProyecto: any;
   proyecto: Proyecto[]=[];
-  url= 'http://localhost:8080/proyecto';
+  url= 'https://portfolio-cintia-necol.onrender.com/proyecto';
   
  
 

@@ -17,7 +17,7 @@ export class LoginService {
         }, (error: any) => console.log(error));
       
   }
-  url= 'http://localhost:8080/login';
+  url= 'https://portfolio-cintia-necol.onrender.com/login';
 
   constructor(private httpClient:HttpClient) { }
 

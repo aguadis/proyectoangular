@@ -11,7 +11,7 @@ export class ContactoService {
   sContacto: any;
   contacto: Contacto[]=[];
 
-  url= 'http://localhost:8080/contacto';
+  url= 'https://portfolio-cintia-necol.onrender.com/contacto';
 
   
   constructor(private httpClient: HttpClient) { }

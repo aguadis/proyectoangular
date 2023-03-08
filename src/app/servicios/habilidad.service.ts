@@ -10,7 +10,7 @@ import { Habilidad } from '../entidades/habilidad';
 export class HabilidadService {
   sHabilidad: any;
   habilidad: Habilidad[]=[];
-  url= 'http://localhost:8080/habilidad';
+  url= 'https://portfolio-cintia-necol.onrender.com/habilidad';
 
   constructor(private httpClient: HttpClient) { }
 

@@ -12,7 +12,7 @@ export class ExperienciaService {
   sExperiencia: any;
   experiencia: Experiencia[]=[];
     
-url= 'http://localhost:8080/experiencia';
+url= 'https://portfolio-cintia-necol.onrender.com/experiencia';
   
  constructor(private httpClient: HttpClient) { }
 
