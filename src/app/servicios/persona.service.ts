@@ -14,7 +14,7 @@ export class PersonaService {
   
   sPersona: any;
   persona: Persona[]=[];
-  url=   'https://portfolio-cintia-necol.onrender.com/persona';
+  url=   'https://portfolio-cintia-necol.onrender.com/persona/';
   
  constructor(private httpClient: HttpClient) { }
 
