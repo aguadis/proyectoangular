@@ -12,7 +12,7 @@ export class RedService {
   item: Red[]=[];
 
   
-  url=  'https://portfolio-cintia-necol.onrender.com/red';
+  url =  'https://portfolio-cintia-necol.onrender.com/red';
   
  constructor(private httpClient: HttpClient) { }
 

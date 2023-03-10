@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
 export class ServiciosComponent {
   sServicios: any;
   servicios: any;
-  url=  'https://portfolio-cintia-necol.onrender.com';
+  url =  'https://portfolio-cintia-necol.onrender.com';
  
   }
   

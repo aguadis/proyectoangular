@@ -10,7 +10,7 @@ export class ContactoService {
   sContacto: any;
   contacto: Contacto[]=[];
 
-  url=  'https://portfolio-cintia-necol.onrender.com/contacto';
+  url =  'https://portfolio-cintia-necol.onrender.com/contacto';
 
   
   constructor(private httpClient: HttpClient) { }
