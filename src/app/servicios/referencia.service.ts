@@ -11,7 +11,7 @@ export class ReferenciaService {
   
   sReferencia: any;
   referencia: Referencia[]=[];
-  url =  'https://portfolio-cintia-necol.onrender.com/referencia/';
+  url = 'https://portfolio-cintia-necol.onrender.com/referencia/';
 
   
  constructor(private httpClient: HttpClient) { }

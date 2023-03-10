@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AutenticacionService {
-  url =  'https://portfolio-cintia-necol.onrender.com/login/';
+  url = 'https://portfolio-cintia-necol.onrender.com/login/';
   
   currentUserSubjet: BehaviorSubject<any>;
   
