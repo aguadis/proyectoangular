@@ -14,8 +14,7 @@ export class ExperienciaComponent implements OnInit {
   //inicializar variables de instancia 
 
  experiencia: any=[]; //se llama al modelo que es un array
- item: Experiencia[]=[];
-  ExperienciaService: any;
+ 
   
 constructor(
     //Inyectar el Servicio para tener acceso en la clase a los Métodos

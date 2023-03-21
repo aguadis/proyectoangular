@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProyectoService } from '../servicios/proyecto.service';
+
 
 @Component({
   selector: 'app-footer',

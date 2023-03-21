@@ -10,13 +10,7 @@ import { Proyecto } from '../entidades/proyecto';
 export class ProyectoComponent implements OnInit {
   
   proyecto: any=[]; //se llama al modelo que es un array
- item: Proyecto[]=[];
-  ProyectoService: any;
-  
-
- 
-
-constructor(
+ constructor(
     //Inyectar el Servicio para tener acceso en la clase a los Métodos
     private sProyecto:ProyectoService
     ) { }

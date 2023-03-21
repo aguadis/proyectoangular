@@ -10,32 +10,27 @@ import { RedService } from '../servicios/red.service';
 export class RedesComponent implements OnInit {
  
   
-  item: Red[]=[];
-   RedService: any;
-redes: any;
- 
+  red: any=[];
   
-
- 
   
- 
  constructor(
      //Inyectar el Servicio para tener acceso en la clase a los Métodos
-     private sRed:RedService
+     private sRed: RedService,
      ) { }
  
      
     
    ngOnInit(): void {
-       //Esto es almacenar en la variable de instancia los datos recuperados por el Servicio
-       this.sRed.list().subscribe({
-         next: (v) => { 
-           console.log(v);
-           this.redes=v},
-         error: (e) => console,
-         complete: () => console.info('complete') 
-     });
-           };
+    //Esto es almacenar en la variable de instancia los datos recuperados por el Servicio
+    this.sRed.list().subscribe({
+      next: (v) => { 
+        console.log(v);
+        this.red=v},
+      error: (e) => console,
+      complete: () => console.info('complete') 
+  });
+   }
+
    
          
        

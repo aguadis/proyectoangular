@@ -9,24 +9,12 @@ import { ReferenciaService } from '../servicios/referencia.service';
 })
 export class ReferenciaComponent implements OnInit {
   referencia: any=[]; //se llama al modelo que es un array
-  item: Referencia[]=[];
-   ReferenciaService: any;
- 
- 
-  
- 
  constructor(
      //Inyectar el Servicio para tener acceso en la clase a los Métodos
      private sReferencia:ReferenciaService
      ) { }
  
-     listarReferencia(): void{
-       this.sReferencia.list().subscribe(data =>{
-         this.referencia=data;
-       });
-     }
-    
-   ngOnInit(): void {
+     ngOnInit(): void {
        //Esto es almacenar en la variable de instancia los datos recuperados por el Servicio
        this.sReferencia.list().subscribe({
          next: (v) => { 
@@ -37,9 +25,7 @@ export class ReferenciaComponent implements OnInit {
      });
            };
    
-         
-       
-     }
+          }
    
          
      

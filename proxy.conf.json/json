@@ -1,0 +1,7 @@
+{
+  "/api": {
+    "target": "https://portfolio-cintia-necol.onrender.com",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

@@ -1,16 +1,32 @@
 {
   "hosting": {
-    "public": "dist/proyectoangular",
+
+    "public": "dist/proyectoangular",  
+
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
     ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
-  }
+
+    "rewrites": [ {
+      
+      "source": "/proyectoangular/**",
+      "destination": "/proyectoangular/index.html"
+    }  ],
+
+    "headers": [ {
+      "source": "**/*.@(eot|otf|ttf|ttc|woff|font.css)",
+      "headers": [ {
+        "key": "Access-Control-Allow-Origin",
+        "value": "*"
+      } ]
+    }, {
+      "source": "**/*.@(jpg|jpeg|gif|png)",
+      "headers": [ {
+        "key": "Cache-Control",
+        "value": "max-age=7200"
+      } ]
+    }  ]
+ }
 }

@@ -11,8 +11,7 @@ import { EducacionService } from '../servicios/educacion.service';
 })
 export class EducacionComponent implements OnInit {
   educacion: any=[]; //se llama al modelo que es un array
- item: Educacion[]=[];
-  EducacionService: any;
+ 
   
 
   
@@ -26,10 +25,7 @@ constructor(
 
 
   ngOnInit(): void {
-   
-  
-    
-    this.sEducacion.list().subscribe({
+   this.sEducacion.list().subscribe({
         next: (v) => { 
          console.log(v);
           this.educacion=v},

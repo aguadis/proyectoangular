@@ -1,4 +1,4 @@
-/*.banner{
+.banner{
    
    background-image :[ngClass]="item.url_banner";
  
@@ -8,7 +8,7 @@
        background-repeat: no-repeat;
        min-height: 100vh;
        background-size: cover;
-    }*/
+    }
     
     
  

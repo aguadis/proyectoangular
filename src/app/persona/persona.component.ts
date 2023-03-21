@@ -11,7 +11,7 @@ export class PersonaComponent  {
   persona: any=[]; //se llama al modelo que es un array
   item: Persona[]=[];
    PersonaService: any;
-   
+   Persona = new Persona("", "", "", "", "", "", "", "");
   
 
 constructor(
@@ -28,11 +28,9 @@ constructor(
         error: (e) => console,
         complete: () => console.info('complete') 
     });
+       //DEFINIR INFORMACION A MOSTRAR
           };
-  
-      
-        
-    }
+   }
 
   
  

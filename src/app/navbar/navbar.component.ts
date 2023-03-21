@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  navbar: any;
+ 
 
   constructor(
     //Inyectar el Servicio para tener acceso en la clase a los Métodos

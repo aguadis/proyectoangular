@@ -11,13 +11,7 @@ import { ContactoService } from '../servicios/contacto.service';
 })
 export class ContactoComponent implements OnInit {
   contacto: any=[]; //se llama al modelo que es un array
-  item: Contacto[]=[];
-   ContactoService: any;
- 
- 
-  
- 
- constructor(
+  constructor(
      //Inyectar el Servicio para tener acceso en la clase a los Métodos
      private sContacto:ContactoService) { }
   

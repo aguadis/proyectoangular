@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class ServiciosComponent {
   sServicios: any;
   servicios: any;
-  url: string= "https://portfolio-cintia-necol.onrender.com";
+ 
  
   }
   

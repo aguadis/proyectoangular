@@ -12,10 +12,7 @@ export class HabilidadComponent implements OnInit {
 //inicializar variables de instancia 
 
 habilidad: any=[]; //se llama al modelo que es un array
-item: Habilidad[]=[];
- HabilidadService: any;
-
- constructor(
+constructor(
     //Inyectar el Servicio para tener acceso en la clase a los Métodos
   private sHabilidad:HabilidadService) { }
 

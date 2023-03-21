@@ -8,31 +8,33 @@ import { Red } from '../entidades/red';
   providedIn: 'root'
 })
 export class RedService {
-  sRed: any;
-  item: Red[]=[];
-
   
   url = 'https://portfolio-cintia-necol.onrender.com/red';
+  http: any;
   
  constructor(private httpClient: HttpClient) { }
 
-  public list(): Observable<any>{
-    return this.httpClient.get<any>(this.url);
+ getData() {
+  return this.http.get('/api/red');}
+
+ 
+    public list(): Observable<Red[]>{
+    return this.httpClient.get<Red[]>(this.url);
     }
     
-    public getById(id: number):Observable<Red[]>{
-      return this.httpClient.get<Red[]>(this.url + `/${id}`);
+    public getById(id: number):Observable<any>{
+      return this.httpClient.get<Red>(this.url + `/${id}`);
     }
     
-    public save(red: Red):Observable<Red[]>{
+    public save(red: Red):Observable<any>{
      return this.httpClient.post<any>(this.url, red);
     }
     
-    public update(id:number, red: Red):Observable<Red[]>{
-     return this.httpClient.put<any>(this.url, red);
+    public update(red: Red):Observable<any>{
+     return this.httpClient.put<Red>(this.url, red);
     }
     
-    public delete(id: number):Observable<any>{
+    public delete(id: number):Observable<Red>{
      return this.httpClient.delete<any>(this.url + `/${id}`);
     
     }

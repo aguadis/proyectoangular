@@ -9,30 +9,31 @@ import { Experiencia } from '../entidades/experiencia';
   providedIn: 'root'
 })
 export class ExperienciaService {
-  sExperiencia: any;
-  experiencia: Experiencia[]=[];
-    
   url = 'https://portfolio-cintia-necol.onrender.com/experiencia';
+  http: any;
   
  constructor(private httpClient: HttpClient) { }
 
-  public list(): Observable<any>{
-    return this.httpClient.get<any>(this.url);
+ getData() {
+  return this.http.get('/api/experiencia');}
+
+  public list(): Observable<Experiencia[]>{
+    return this.httpClient.get<Experiencia[]>(this.url);
     }
     
-    public getById(id: number):Observable<Experiencia[]>{
-      return this.httpClient.get<Experiencia[]>(this.url+ `/${id}`);
+    public getById(id: number):Observable<any>{
+      return this.httpClient.get<Experiencia>(this.url+ `/${id}`);
     }
     
-    public save(experiencia: Experiencia):Observable<Experiencia[]>{
+    public save(experiencia: Experiencia):Observable<any>{
      return this.httpClient.post<any>(this.url, experiencia);
     }
     
-    public update(id:number, experiencia: Experiencia):Observable<Experiencia[]>{
-     return this.httpClient.put<any>(this.url, experiencia);
+    public update( experiencia: Experiencia):Observable<any>{
+     return this.httpClient.put<Experiencia>(this.url, experiencia);
     }
     
-    public delete(id: number):Observable<any>{
+    public delete(id: number):Observable<Experiencia>{
      return this.httpClient.delete<any>(this.url + `/${id}`);
     
     }
