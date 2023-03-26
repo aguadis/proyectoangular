@@ -10,24 +10,24 @@ import { ProyectoService } from 'src/app/servicios/proyecto.service';
   styleUrls: ['./modal-proyectos.component.css']
 })
 export class ModalProyectosComponent implements OnInit {
-  proyecto:any;
+  
   form: FormGroup;
   item: Proyecto[] = [];
   id?:number;
-  
+  proyecto:any;
    
   constructor(private formBuilder: FormBuilder, private sProyecto: ProyectoService) {
 
     this.form = this.formBuilder.group({
       trabajo: ['', [Validators.required]],
-      img: [''],
+      img: ['', [Validators.required]],
       id: [''],
       })
    }
 
     
   ngOnInit(): void {
-    this.cargarProyectos();
+    this.cargarProyecto();
   }
 
   onLoadModal(item:any){
@@ -36,7 +36,7 @@ export class ModalProyectosComponent implements OnInit {
     this.form.get("id")?.setValue(item.id);
   }
 
-  cargarProyectos(): void {
+  cargarProyecto(): void {
     this.sProyecto.list().subscribe(
       data => {
         this.proyecto = data;
@@ -47,10 +47,10 @@ export class ModalProyectosComponent implements OnInit {
   cargarDetalle(id: number){
     this.sProyecto.getById(id).subscribe(
       {
-        next: (data: { [key: string]: any; }) => {
-          this.form.patchValue(data);
+        next: (data) => {
+          this.form.setValue(data);
         },
-        error: (e: any) => {
+        error: (e) => {
           console.error(e)
           alert("error al modificar")
         },
@@ -61,38 +61,46 @@ export class ModalProyectosComponent implements OnInit {
 
   guardar() {
     console.log("FUNCIONA!!!")
-    let proyectos = this.form.value;
+    let proyecto = this.form.value;
     console.log()
-    if (this.proyecto.id == '') {
-      this.sProyecto.save(proyectos).subscribe(
+    if (proyecto.id == '') {
+      this.sProyecto.save(proyecto).subscribe(
         (      data: any) => {
-  alert("Su nueva Educación fue añadida correctamente");
-          this.cargarProyectos();
+  alert("Su nueva proyecto fue añadido correctamente");
+          this.cargarProyecto();
           this.form.reset();
         }
       )
     } else {
-      this.sProyecto.save(proyectos).subscribe(
+      this.sProyecto.save(proyecto).subscribe(
         (      data: any) => {
-          alert("Educacion editada!");
-          this.cargarProyectos();
+          alert("Proyecto editado!");
+          this.cargarProyecto();
           this.form.reset();
         }
       )
     }
   }
 
-  borrar(id: number) {
+  borrar(id: number): void {
+    
+  if (confirm('¿Está seguro que desea eliminar este elemento?')) {
     this.sProyecto.delete(id).subscribe(
-  db => {
-    alert("se pudo eliminar satisfactoriamente")
-    this.cargarProyectos();
-  },
-  error => {
-  alert("No se pudo eliminar")
-  })
+      data => {
+        this.cargarProyecto();
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
-  
+}
+
+reset(): void {
+  this.form.reset();
+  this.form.get('id')?.setValue('');
+}
+
 
 }
       

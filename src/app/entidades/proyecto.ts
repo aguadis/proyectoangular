@@ -1,12 +1,12 @@
 export class Proyecto {
     id?: number;
-    img: string;
     trabajo: string;
+    img: string;
 
-    constructor(img:string, trabajo: string){
-        this.img = img;
+    constructor( trabajo: string,img:string){
+        
         this.trabajo = trabajo;
-
+        this.img = img;
 
     }
 }

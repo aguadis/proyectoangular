@@ -90,16 +90,23 @@ alert("Su nueva Educación fue añadida correctamente");
   }
 }
     
-  borrar(id: number) {
-  this.sEducacion.delete(id).subscribe(
-db => {
-  alert("se pudo eliminar satisfactoriamente")
-  this.cargarEducacion();
-},
-error => {
-alert("No se pudo eliminar")
-})
-}
+  borrar(id: number): void {
+    if (confirm('¿Está seguro que desea eliminar este elemento?')) {
+      this.sEducacion.delete(id).subscribe(
+        data => {
+          this.cargarEducacion();
+        },
+        error => {
+          console.log(error);
+        }
+      );
+    }
+  }
+
+  reset(): void {
+    this.form.reset();
+    this.form.get('id')?.setValue('');
+  }
 
 }
 

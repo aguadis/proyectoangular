@@ -50,10 +50,10 @@ cargarHabilidad(): void {
 cargarDetalle(id: number){
   this.sHabilidad.getById(id).subscribe(
     {
-      next: (data: { [key: string]: any; }) => {
-        this.form.patchValue(data);
+      next: (data) => {
+        this.form.setValue(data);
       },
-      error: (e: any) => {
+      error: (e) => {
         console.error(e)
         alert("error al modificar")
       },
@@ -66,16 +66,16 @@ guardar() {
   console.log("FUNCIONA!!!")
   let habilidad = this.form.value;
   console.log()
-  if (this.habilidad.id == '') {
+  if (habilidad.id == '') {
     this.sHabilidad.save(habilidad).subscribe(
       (      data: any) => {
-alert("Su nueva habilidad fue añadida correctamente");
+alert("Su nueva Habilidad fue añadida correctamente");
         this.cargarHabilidad();
         this.form.reset();
       }
     )
   } else {
-    this.sHabilidad.save(this.habilidad).subscribe(
+    this.sHabilidad.save(habilidad).subscribe(
       (      data: any) => {
         alert("Habilidad editada!");
         this.cargarHabilidad();
@@ -85,15 +85,22 @@ alert("Su nueva habilidad fue añadida correctamente");
   }
 }
     
-borrar(id: number) {
-  this.sHabilidad.delete(id).subscribe(
-db => {
-  alert("se pudo eliminar satisfactoriamente")
-  this.cargarHabilidad();
-},
-error => {
-alert("No se pudo eliminar")
-})
+borrar(id: number): void {
+  if (confirm('¿Está seguro que desea eliminar este elemento?')) {
+    this.sHabilidad.delete(id).subscribe(
+      data => {
+        this.cargarHabilidad();
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+}
+
+reset(): void {
+  this.form.reset();
+  this.form.get('id')?.setValue('');
 }
 
 }

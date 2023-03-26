@@ -86,20 +86,26 @@ export class ModalExperienciaComponent implements OnInit {
     }
   }
       
-    borrar(id: number) {
-    this.sExperiencia.delete(id).subscribe(
-  db => {
-    alert("se pudo eliminar satisfactoriamente")
-    this.cargarExperiencia();
-  },
-  error => {
-  alert("No se pudo eliminar")
-  })
-  }
+    borrar(id: number): void {
+      if (confirm('¿Está seguro que desea eliminar este elemento?')) {
+        this.sExperiencia.delete(id).subscribe(
+          data => {
+            this.cargarExperiencia();
+          },
+          error => {
+            console.log(error);
+          }
+        );
+      }
   
   }
   
-      
+  reset(): void {
+    this.form.reset();
+    this.form.get('id')?.setValue('');
+  }
+
+}  
   
   
  

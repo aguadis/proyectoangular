@@ -7,56 +7,58 @@
           <h5 class="modal-title" id="exampleModalLabel">Redes</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-
-        <form [formGroup]="form">
         
         <div class="modal-body">
-          <section id="seccion-red">
-            <div class="container fluid">
-          <!--listado de redes-->
-           <ul class="list-group list-group-horizontal">
-            <li class="list-group-item" *ngFor="let item of redes">
-              <a [href]="item.red" target="_blank"><i [ngClass]="item.clase"></i></a>
-              <div class="acciones">
-                <button type="button" class="btn btn-sm btn-outline-warning pl-1 pr-1 m-0" (click)="onLoadModal(item.id)">Editar <i class="fa-solid fa-pen"></i></button>
-                <button type="button" class="btn btn-sm btn-outline-danger pl-1 pr-1 m-0" (click)="borrar(item.id)">Eliminar <i class="fa-solid fa-trash"></i></button>
-              </div>
-            </li>
-          </ul>
-
-          <!-- Formulario para crear/editar redes -->
-          <div class="form-group">
-            <!-- ID -->
-            <div class="input-group mb-3" *ngIf="form.get('id')?.value">
-              <div class="input-group-prepend">
-                <span class="input-group-text">ID:</span>
-              </div>
-              <input type="text" class="form-control" formControlName="id" readonly>
-            </div>
-
-            <!-- Clase de icono -->
-            <div class="mb-3">
-              <label for="clase"><strong>Icono Clase</strong></label>
-              <input type="text" class="form-control" id="clase" formControlName="clase">
-            </div>
-
-            <!-- URL de red -->
-            <div class="mb-3">
-              <label for="red"><strong>URL Red</strong></label>
-              <input type="text" class="form-control" id="red" formControlName="red">
-            </div>
-          </div>
+          <div class="container fluid">
+        <form [formGroup]="form">
+          <div class="modal-body">
+            <ul class="p-0">
+        <!--listado de redes-->
+           <div  *ngFor="let item of redes" 
+            class="d-flex justify-content-between align-items-center m-1 list-group-item">
+             <a [href]="item.red" target="_blank"><i [ngClass]="item.clase"></i></a>
+              <span class="d-flex justify-content-between gap-2">
+              <!--lapicito rojo que se cambia al tocarlo-->
+           <button type="button" class="btn btn-sm btn-outline-warning pl-1 pr-1 m-0" (click)="cargarDetalle(item.id)">Editar
+            <i class="fa-solid fa-pen"></i>
+          </button>
+          <!--Tachico de Basura que se hace fondo rojo al tocarlo-->
+          <button type="button" class="btn btn-sm btn-outline-danger pl-1 pr-1 m-0" (click)="borrar(item.id)">Eliminar
+            <i class="fa-solid fa-trash"></i>
+          </button>
+              </span>
         </div>
-      </section>
+            </ul>
+          
+             <!--esto es la validacion  renderizado condicional-->
+   <div class="input-group mb-3 bg-light" *ngIf="!!form.value.id">
+    <div class="input-group-prepend border-0">
+      <span class="input-group-text border-0" id="basic-addon1">ID:</span>
     </div>
-
-    <!-- Botones de acción -->
+    <input class="form-control outline-none border-0 bg-transparent" type="text" readonly formControlName="id">
+  </div>
+<!-- Clase de icono -->
+      <div class="mb-3">
+      <label for="clase"><strong>Icono Clase</strong></label>
+      <input type="text" class="form-control" id="clase"  formControlName="clase">
+      <input type="hidden" name="" id="id">
+    </div>
+ <!-- URL de red -->
+      <div class="mb-3">
+      <label for="red"><strong>URL Red</strong></label>
+      <input type="text" class="form-control" name="" id="red"  formControlName="red">
+    </div>
+<!-- Botones de acción -->
     <div class="modal-footer">
-      <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Crear</button>
-      <button type="button" class="btn btn-primary" (click)="guardar()" [disabled]="form.invalid">Guardar</button>
-    </div>
+      <button class="btn btn-secondary" (click)="form.reset()">Reset</button>
+      <button type="button" class="btn btn-primary" (click)="guardar()">Guardar</button>
+     </div>
+   </div>
   </form>
 </div>
 </div>
 </div>
-          <!--fin de redes modal-->
+</div>
+</div>
+
+   <!--fin de redes modal-->

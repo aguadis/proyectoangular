@@ -10,10 +10,10 @@ import { RedService } from 'src/app/servicios/red.service';
 })
 export class ModalRedComponent implements OnInit {
   form: FormGroup;
- redes: any;
-  id?:number;
   item: Red[] = [];
-  sRed: any;
+  id?:number;
+  redes: any;
+
   constructor(private formBuilder: FormBuilder, private redService: RedService) {
     this.form = this.formBuilder.group({
       id: [''],
@@ -29,8 +29,10 @@ export class ModalRedComponent implements OnInit {
 
 
 
-  onLoadModal(item: any): void {
-    
+  onLoadModal(item: any) {
+  this.form.get("clase")?.setValue(item.clase);
+  this.form.get("red")?.setValue(item.red);
+  this.form.get("id")?.setValue(item.id);
   }
 
   cargarRedes(): void {
@@ -38,43 +40,46 @@ export class ModalRedComponent implements OnInit {
       data => {
         this.redes = data;
       }
-    );
+    )
   }
 
-  guardar(): void {
-    if (this.form.invalid) {
-      return;
-    }
-
-    const red: Red = {
-      id: this.form.value.id,
-      clase: this.form.value.clase,
-      red: this.form.value.red
-    };
-
-    if (red.id) {
-      this.redService.save(red).subscribe(
-        data => {
-          this.cargarRedes();
-          this.reset();
+  cargarDetalle(id: number){
+    this.redService.getById(id).subscribe(
+      {
+        next: (data) => {
+          this.form.setValue(data);
         },
-        error => {
-          console.log(error);
+        error: (e) => {
+          console.error(e)
+          alert("error al modificar")
+        },
+        complete: () => console.info('complete aqui')
+      }
+    )
+  }
+//👇 esto es solo para hacer pruebas en local
+  guardar() {
+    console.log("FUNCIONA!!!")
+    let redes = this.form.value;
+    console.log()
+    if (redes.id == '') {
+      this.redService.save(redes).subscribe(
+        (      data: any) => {
+  alert("Su nueva Red fue añadida correctamente");
+          this.cargarRedes();
+          this.form.reset();
         }
-      );
+      )
     } else {
-      this.redService.save(red).subscribe(
-        data => {
+      this.redService.save(redes).subscribe(
+        (      data: any) => {
+          alert("Red editada!");
           this.cargarRedes();
-          this.reset();
-        },
-        error => {
-          console.log(error);
+          this.form.reset();
         }
-      );
+      )
     }
   }
-      
 
   borrar(id: number): void {
     if (confirm('¿Está seguro que desea eliminar este elemento?')) {

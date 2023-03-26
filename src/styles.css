@@ -13,6 +13,11 @@
     background: #161718;
 }
 
+
+body {
+    color: #3b4c54f2;
+}
+
  .section-about {
     background-size: 100%;
     background-repeat: no-repeat;

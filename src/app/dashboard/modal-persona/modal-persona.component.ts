@@ -16,25 +16,24 @@ export class ModalPersonaComponent implements OnInit {
   item: Persona[] = [];
     id?:number;
    persona: any;
-NombreInvalido: any;
-Nombrevalido: any;
-Nombre: any;
-ApellidoInvalido: any;
-ApellidoValido: any;
-Apellido: any;
-Url_bannerInvalido: any;
-Url_bannerValido: any;
-Url_banner: any;
-Foto_perfilInvalido: any;
-Foto_perfilValido: any;
-Foto_perfil: any;
-AcercaInvalido: any;
-AcercaValido: any;
-Acerca: any;
 FraseInvalido: any;
 FraseValido: any;
 Frase: any;
-  
+Acerca: any;
+AcercaInvalido: any;
+AcercaValido: any;
+Foto_perfil: any;
+Foto_perfilInvalido: any;
+Foto_perfilValido: any;
+Url_banner: any;
+Url_bannerValido: any;
+Url_bannerInvalido: any;
+Apellido: any;
+ApellidoInvalido: any;
+ApellidoValido: any;
+Nombre: any;
+NombreInvalido: any;
+
  
   
 

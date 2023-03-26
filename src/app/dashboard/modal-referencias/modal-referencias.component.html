@@ -55,9 +55,10 @@
             <label for="contacto"><strong>Contacto</strong></label>
             <input type="text" name="" class="form-control" id="contacto" formControlName="contacto">
           </div>
+          <!-- Botones de acción -->
           <div class="modal-footer">
-            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Crear</button>
-            <button type="button" class="btn btn-primary" (click)="guardar()" >GUARDAR DATOS</button>
+            <button class="btn btn-secondary" (click)="form.reset()">Cerrar</button>
+            <button type="button" class="btn btn-primary" (click)="guardar()">Guardar</button>
           </div>
   </div>
 </form>

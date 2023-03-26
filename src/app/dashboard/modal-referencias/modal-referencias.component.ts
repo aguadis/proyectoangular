@@ -91,16 +91,23 @@ export class ModalReferenciasComponent implements OnInit {
     }
   }
       
-    borrar(id: number) {
-    this.sReferencia.delete(id).subscribe(
-  db => {
-    alert("se pudo eliminar satisfactoriamente")
-    this.cargarReferencia();
-  },
-  error => {
-  alert("No se pudo eliminar")
-  })
-  }
+    borrar(id: number): void {
+      if (confirm('¿Está seguro que desea eliminar este elemento?')) {
+        this.sReferencia.delete(id).subscribe(
+          data => {
+            this.cargarReferencia();
+          },
+          error => {
+            console.log(error);
+          }
+        );
+      }
+    }
+  
+    reset(): void {
+      this.form.reset();
+      this.form.get('id')?.setValue('');
+    }
   
   }
 
