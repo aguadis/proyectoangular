@@ -61,34 +61,41 @@ cargarDetalle(id: number){
         alert("error al modificar")
       },
       complete: () => console.info('complete aqui')
-    }
-  )
+    });
+    console.log("Proyecto cargado correctamente");
 }
 //👇 esto es solo para hacer pruebas en local
 
 
 guardar() {
-  console.log("FUNCIONA!!!")
-  let educacion = this.form.value;
-  console.log()
+ let educacion = this.form.value;
   if (educacion.id == '') {
-    this.sEducacion.save(educacion).subscribe(
-      (      data: any) => {
-alert("Su nueva Educación fue añadida correctamente");
+    this.sEducacion.save(educacion).subscribe({
+      next: (data) => {
         this.cargarEducacion();
         this.form.reset();
-      }
-    )
+      },
+      error: (e) => console.error(e),
+      complete: () => console.info('complete')
+    });
+    window.location.reload();
+    alert("Educacion agregada correctamente");
   } else {
-    this.sEducacion.save(educacion).subscribe(
-      (      data: any) => {
-        alert("Educacion editada!");
+    this.sEducacion.save(educacion).subscribe({
+      next: (data) => {
         this.cargarEducacion();
         this.form.reset();
-      }
-    )
+      },
+      error: (e) => console.error(e),
+      complete: () => console.info('complete')
+    });
+    window.location.reload();
+    alert("Educacion modificada correctamente");
   }
 }
+
+  
+
     
   borrar(id: number): void {
     if (confirm('¿Está seguro que desea eliminar este elemento?')) {

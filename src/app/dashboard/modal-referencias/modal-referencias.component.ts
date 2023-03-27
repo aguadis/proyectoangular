@@ -62,34 +62,39 @@ export class ModalReferenciasComponent implements OnInit {
           alert("error al modificar")
         },
         complete: () => console.info('complete aqui')
-      }
-    )
+      }),
+      console.log("Proyecto cargado correctamente"); 
   }
   //👇 esto es solo para hacer pruebas en local
   
   
   guardar() {
-    console.log("FUNCIONA!!!")
-    let referencia = this.form.value;
-    console.log()
+  let referencia = this.form.value;
     if (referencia.id == '') {
-      this.sReferencia.save(referencia).subscribe(
-        (      data: any) => {
-  alert("Su nueva Educación fue añadida correctamente");
+      this.sReferencia.save(referencia).subscribe({
+        next: (data) => {
           this.cargarReferencia();
           this.form.reset();
-        }
-      )
+        },
+        error: (e) => console.error(e),
+        complete: () => console.info('complete')
+      });
+      window.location.reload();
+      alert("Referencia agregada correctamente");
     } else {
-      this.sReferencia.save(referencia).subscribe(
-        (      data: any) => {
-          alert("Referencia editada!");
+      this.sReferencia.save(referencia).subscribe({
+        next: (data) => {
           this.cargarReferencia();
           this.form.reset();
-        }
-      )
+        },
+        error: (e) => console.error(e),
+        complete: () => console.info('complete')
+      });
+      window.location.reload();
+      alert("Referencia modificada correctamente");
     }
   }
+  
       
     borrar(id: number): void {
       if (confirm('¿Está seguro que desea eliminar este elemento?')) {

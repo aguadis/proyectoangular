@@ -63,27 +63,35 @@ export class ModalContactoComponent implements OnInit {
   }
 
   guardar() {
-    console.log("FUNCIONA!!!")
+    
     let contacto = this.form.value;
-    console.log()
     if (contacto.id == '') {
-      this.sContacto.save(contacto).subscribe(
-        (      data: any) => {
-  alert("Su nueva Educación fue añadida correctamente");
+      this.sContacto.save(contacto).subscribe({
+        next: (data) => {
           this.cargarContacto();
           this.form.reset();
-        }
-      )
+        },
+        error: (e) => console.error(e),
+        complete: () => console.info('complete')
+      });
+      window.location.reload();
+      alert("Contacto agregado correctamente");
     } else {
-      this.sContacto.save(contacto).subscribe(
-        (      data: any) => {
-          alert("Educacion editada!");
+      this.sContacto.save(contacto).subscribe({
+        next: (data) => {
           this.cargarContacto();
           this.form.reset();
-        }
-      )
+        },
+        error: (e) => console.error(e),
+        complete: () => console.info('complete')
+      });
+      window.location.reload();
+      alert("Contacto modificado correctamente");
     }
   }
+  
+    
+  
  
   borrar(id: number) {
     this.sContacto.delete(id).subscribe(

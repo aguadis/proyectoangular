@@ -64,27 +64,33 @@ export class ModalExperienciaComponent implements OnInit {
   
   
   guardar() {
-    console.log("FUNCIONA!!!")
+    
     let experiencia = this.form.value;
-    console.log()
     if (experiencia.id == '') {
-      this.sExperiencia.save(experiencia).subscribe(
-        (      data: any) => {
-  alert("Su nueva Educación fue añadida correctamente");
+      this.sExperiencia.save(experiencia).subscribe({
+        next: (data) => {
           this.cargarExperiencia();
           this.form.reset();
-        }
-      )
+        },
+        error: (e) => console.error(e),
+        complete: () => console.info('complete')
+      });
+      window.location.reload();
+      alert("Experiencia agregada correctamente");
     } else {
-      this.sExperiencia.save(experiencia).subscribe(
-        (      data: any) => {
-          alert("Experiencia editada!");
+      this.sExperiencia.save(experiencia).subscribe({
+        next: (data) => {
           this.cargarExperiencia();
           this.form.reset();
-        }
-      )
+        },
+        error: (e) => console.error(e),
+        complete: () => console.info('complete')
+      });
+      window.location.reload();
+      alert("Experiencia modificada correctamente");
     }
   }
+  
       
     borrar(id: number): void {
       if (confirm('¿Está seguro que desea eliminar este elemento?')) {

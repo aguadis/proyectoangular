@@ -16,11 +16,11 @@
               <div class="col-2">
               </div>
               <div class="col-8">
-              <h3><strong>{{item.titulo}}</strong></h3>
-              <h5>{{item.frase}}</h5>
-              <img [src]="item.img">
-              <h4>{{item.correo}}</h4>
-              <h4>{{item.telefono}}</h4>
+              <h6><strong>{{item.titulo}}</strong></h6>
+              <h1>{{item.frase}}</h1>
+              <img [src]="item.img" class="img-fluid w-50">
+              <h6>{{item.correo}}</h6>
+              <h6>{{item.telefono}}</h6>
               </div>
 
         <!--lapicito rojo que se cambia al tocarlo-->
@@ -70,8 +70,8 @@
 </div>
 
 <div class="modal-footer">
-  <button class="btn btn-secondary" (click)="form.reset()">Cerrar</button>
-  <button type="button" class="btn btn-primary" (click)="guardar()" >GUARDAR DATOS</button>
+  <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal" (click)="form.reset">Reset</button> 
+          <button type="button" class="btn btn-primary" (click)="guardar()">Guardar</button> 
 </div>
 </div>
 </form>

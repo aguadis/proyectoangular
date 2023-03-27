@@ -57,8 +57,8 @@
           </div>
           <!-- Botones de acción -->
           <div class="modal-footer">
-            <button class="btn btn-secondary" (click)="form.reset()">Cerrar</button>
-            <button type="button" class="btn btn-primary" (click)="guardar()">Guardar</button>
+            <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal" (click)="form.reset">Reset</button> 
+          <button type="button" class="btn btn-primary" (click)="guardar()">Guardar</button> 
           </div>
   </div>
 </form>

@@ -63,24 +63,30 @@ export class ModalRedComponent implements OnInit {
     let redes = this.form.value;
     console.log()
     if (redes.id == '') {
-      this.redService.save(redes).subscribe(
-        (      data: any) => {
-  alert("Su nueva Red fue añadida correctamente");
+      this.redService.save(redes).subscribe({
+        next: (data) => {
           this.cargarRedes();
           this.form.reset();
-        }
-      )
+        },
+        error: (e) => console.error(e),
+        complete: () => console.info('complete')
+      });
+      window.location.reload();
+      alert("Red agregada correctamente");
     } else {
-      this.redService.save(redes).subscribe(
-        (      data: any) => {
-          alert("Red editada!");
+      this.redService.save(redes).subscribe({
+        next: (data) => {
           this.cargarRedes();
           this.form.reset();
-        }
-      )
+        },
+        error: (e) => console.error(e),
+        complete: () => console.info('complete')
+      });
+      window.location.reload();
+      alert("Red modificada correctamente");
     }
   }
-
+  
   borrar(id: number): void {
     if (confirm('¿Está seguro que desea eliminar este elemento?')) {
       this.redService.delete(id).subscribe(

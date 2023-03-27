@@ -99,23 +99,31 @@ NombreInvalido: any;
     let persona = this.form.value;
     console.log()
     if (persona.id == '') {
-      this.sPersona.save(persona).subscribe(
-        (      data: any) => {
-  alert("Su nueva Persona fue añadida correctamente");
+      this.sPersona.save(persona).subscribe({
+        next: (data) => {
           this.cargarPersona();
           this.form.reset();
-        }
-      )
+        },
+        error: (e) => console.error(e),
+        complete: () => console.info('complete')
+      });
+      window.location.reload();
+      alert("Persona agregada correctamente");
     } else {
-      this.sPersona.save(persona).subscribe(
-        (      data: any) => {
-          alert("Persona editada!");
+      this.sPersona.save(persona).subscribe({
+        next: (data) => {
           this.cargarPersona();
           this.form.reset();
-        }
-      )
+        },
+        error: (e) => console.error(e),
+        complete: () => console.info('complete')
+      });
+      window.location.reload();
+      alert("Persona modificada correctamente");
     }
   }
+    
+       
       
   borrar(id: number): void {
     if (confirm('¿Está seguro que desea eliminar este elemento?')) {

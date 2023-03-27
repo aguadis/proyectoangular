@@ -102,12 +102,12 @@
         },
        {
         "id": 2,
-        "trabajo": "Asesoria a clientes para buen manejo de maquinas de coser. Administracion en RD SERVICIOS Y MANTENIMIENTO",
+        "trabajo": "Asesoría a clientes de Secchi Maquinas de Coser y Mercería, para el buen manejo de maquinas de coser. También me encargo de la administración y facturación en la empresa RD SERVICIOS Y MANTENIMIENTO",
         "img": "../../assets/img/Merceria.png"
       },
        {
         "id": 3,
-        "trabajo": "Maquetado de proyecto CV en html, css, bootstrap, fotawesome. Utilizando ANGULAR, MYSQL , java.",
+        "trabajo": "Maquetado de proyecto CV en : HTML, CSS, BOOTSTRAP, FONTAWESOME. Utilizando ANGULAR, NETBEANS, MYSQL ,SPRING BOOT, JAVA. Deploy hecho en Firebase y Render",
         "img": "../../assets/img/Computadora.png"
        },
        {

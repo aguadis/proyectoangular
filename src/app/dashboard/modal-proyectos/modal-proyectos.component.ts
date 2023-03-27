@@ -14,8 +14,8 @@ export class ModalProyectosComponent implements OnInit {
   form: FormGroup;
   item: Proyecto[] = [];
   id?:number;
-  proyecto:any;
-   
+  proyecto: any;
+ 
   constructor(private formBuilder: FormBuilder, private sProyecto: ProyectoService) {
 
     this.form = this.formBuilder.group({
@@ -29,6 +29,7 @@ export class ModalProyectosComponent implements OnInit {
   ngOnInit(): void {
     this.cargarProyecto();
   }
+  
 
   onLoadModal(item:any){
     this.form.get("trabajo")?.setValue(item.trabajo);
@@ -45,42 +46,45 @@ export class ModalProyectosComponent implements OnInit {
   }
 
   cargarDetalle(id: number){
-    this.sProyecto.getById(id).subscribe(
-      {
-        next: (data) => {
-          this.form.setValue(data);
-        },
-        error: (e) => {
-          console.error(e)
-          alert("error al modificar")
-        },
-        complete: () => console.info('complete aqui')
-      }
-    )
+    this.sProyecto.getById(id).subscribe({
+      next: (data) => {
+        this.form.setValue(data);
+      },
+      error: (e) => { 
+        console.error(e)
+        alert("error al modificar")
+      },
+      complete: ()=> console.info('complete')
+    });
+    console.log("Proyecto cargado correctamente");
   }
-
-  guardar() {
-    console.log("FUNCIONA!!!")
+ guardar() {
     let proyecto = this.form.value;
-    console.log()
     if (proyecto.id == '') {
-      this.sProyecto.save(proyecto).subscribe(
-        (      data: any) => {
-  alert("Su nueva proyecto fue añadido correctamente");
+      this.sProyecto.save(proyecto).subscribe({
+        next: (data) => {
           this.cargarProyecto();
           this.form.reset();
-        }
-      )
+        },
+        error: (e) => console.error(e),
+        complete: () => console.info('complete')
+      });
+      window.location.reload();
+      alert("Proyecto agregado correctamente");
     } else {
-      this.sProyecto.save(proyecto).subscribe(
-        (      data: any) => {
-          alert("Proyecto editado!");
+      this.sProyecto.save(proyecto).subscribe({
+        next: (data) => {
           this.cargarProyecto();
           this.form.reset();
-        }
-      )
+        },
+        error: (e) => console.error(e),
+        complete: () => console.info('complete')
+      });
+      window.location.reload();
+      alert("Proyecto modificado correctamente");
     }
   }
+
 
   borrar(id: number): void {
     

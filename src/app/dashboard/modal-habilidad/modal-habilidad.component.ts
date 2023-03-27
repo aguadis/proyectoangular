@@ -63,27 +63,34 @@ cargarDetalle(id: number){
 }
 
 guardar() {
-  console.log("FUNCIONA!!!")
+  
   let habilidad = this.form.value;
-  console.log()
+  
   if (habilidad.id == '') {
-    this.sHabilidad.save(habilidad).subscribe(
-      (      data: any) => {
-alert("Su nueva Habilidad fue añadida correctamente");
+    this.sHabilidad.save(habilidad).subscribe({
+      next: (data) => {
         this.cargarHabilidad();
         this.form.reset();
-      }
-    )
+      },
+      error: (e) => console.error(e),
+      complete: () => console.info('complete')
+    });
+    window.location.reload();
+    alert("Habilidad agregada correctamente");
   } else {
-    this.sHabilidad.save(habilidad).subscribe(
-      (      data: any) => {
-        alert("Habilidad editada!");
+    this.sHabilidad.save(habilidad).subscribe({
+      next: (data) => {
         this.cargarHabilidad();
         this.form.reset();
-      }
-    )
+      },
+      error: (e) => console.error(e),
+      complete: () => console.info('complete')
+    });
+    window.location.reload();
+    alert("Habilidad modificada correctamente");
   }
 }
+
     
 borrar(id: number): void {
   if (confirm('¿Está seguro que desea eliminar este elemento?')) {

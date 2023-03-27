@@ -8,17 +8,18 @@
         <h5 class="modal-title" id="exampleModalLabel">Educacion</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <div class="container fluid">
       <form [formGroup]="form">
       <div class="modal-body">
-        <ul class="p-0">
-            <li *ngFor="let item of educacion"
-              class="d-flex justify-content-between align-items-center m-1 ">
-                <h5>{{item.nivel}}</h5>
+        <section id="seccion-Educacion">
+        <div class="container-fluid">
+      <div class="" *ngFor="let item of educacion" class="row">
+        <div class="col-2">
+        </div>
+        <div class="col-8">
+              <p>{{item.nivel}}</p>
                 <h6>{{item.inicio}}/{{item.fin}}</h6>
-                <h6>{{item.estudio}} </h6> 
-             <span class="d-flex justify-content-between gap-2">
+                <p>{{item.estudio}} </p> 
+            </div>
 
           <!--lapicito rojo que se cambia al tocarlo-->
            <button type="button" class="btn btn-sm btn-outline-warning pl-1 pr-1 m-0" (click)="cargarDetalle(item.id)">Editar
@@ -28,10 +29,10 @@
           <button type="button" class="btn btn-sm btn-outline-danger pl-1 pr-1 m-0" (click)="borrar(item.id)">Eliminar
             <i class="fa-solid fa-trash"></i>
           </button>
-            </span>
-            </li>
-           </ul>
-            
+        </div>
+        </div>
+        </section>
+           
         <!--esto es la validacion  renderizado condicional-->
    <div class="input-group mb-3 bg-light" *ngIf="!!form.value.id">
     <div class="input-group-prepend border-0">
@@ -41,23 +42,23 @@
   </div>
 
      <!--colocar textos,imput,botones,formularios para este espacio-->
-    <div class="mb-3">
+    <div>
     <label for="nivel" class="form-label"><strong>Nivel</strong></label>
     <input type="text" name="" class="form-control" id="nivel" placeholder="campo obligatorio" formControlName="nivel">
     <input type="hidden" name="" id="id">
     </div>
     
-    <div class="mb-3">
+    <div>
     <label for="inicio"><strong>Inicio</strong></label>
     <input type="text" name="" class="form-control" id="inicio" placeholder="inicio" formControlName="inicio">
     </div>
     
-    <div class="mb-3">
+    <div>
     <label for="fin"><strong>Fin</strong></label>
     <input type="text" name="" class="form-control" id="fin" placeholder="fin" formControlName="fin">
     </div>
     
-    <div class="mb-3">
+    <div>
     <label for="estudio"><strong>Estudio</strong></label>
     <input type="text" name="" class="form-control" id="estudio"  formControlName="estudio">
     </div>
@@ -70,15 +71,13 @@
     
   
       <div class="modal-footer">
-        <button class="btn btn-secondary" (click)="form.reset()">Reset</button>
-        <button type="button" class="btn btn-primary" (click)="guardar()">Guardar</button>
+        <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal" (click)="form.reset">Reset</button> 
+          <button type="button" class="btn btn-primary" (click)="guardar()">Guardar</button> 
       </div>
     </div>
     </form>
   </div>
   </div>
-</div>
-</div>
 </div>
   <!--fin de educacion modal-->
     
