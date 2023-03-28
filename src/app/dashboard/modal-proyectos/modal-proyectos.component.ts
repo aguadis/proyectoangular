@@ -46,7 +46,8 @@ export class ModalProyectosComponent implements OnInit {
   }
 
   cargarDetalle(id: number){
-    this.sProyecto.getById(id).subscribe({
+    this.sProyecto.getById(id).subscribe(
+      {
       next: (data) => {
         this.form.setValue(data);
       },
@@ -58,7 +59,8 @@ export class ModalProyectosComponent implements OnInit {
     });
     console.log("Proyecto cargado correctamente");
   }
-  
+
+
  guardar() {
     let proyecto = this.form.value;
     if (proyecto.id == '') {
@@ -110,9 +112,6 @@ reset(): void {
 }
       
 
-  
-
-    
   
 
  

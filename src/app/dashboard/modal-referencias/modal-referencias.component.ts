@@ -63,7 +63,7 @@ export class ModalReferenciasComponent implements OnInit {
         },
         complete: () => console.info('complete aqui')
       }),
-      console.log("Proyecto cargado correctamente"); 
+      console.log("Referencia cargada correctamente"); 
   }
   //👇 esto es solo para hacer pruebas en local
   

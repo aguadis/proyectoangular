@@ -23,5 +23,3 @@ export class ProyectosComponent implements OnInit {
   
   
   }
-    
-

@@ -31,9 +31,11 @@ export class ProyectoComponent implements OnInit {
     });
           };
   
+  }
+  
         
       
-    }
+    
   
         
 

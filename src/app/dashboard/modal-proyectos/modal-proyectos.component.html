@@ -1,32 +1,32 @@
 <!--inicio de proyectos Modal -->
 <div class="modal fade" id="proyectosModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Proyectos</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Proyectos</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form [formGroup]="form">
+      <div class="modal-body">
+        <section id="seccion-Proyectos">
+        <div class="container-fluid">
+      <div class="" *ngFor="let item of proyecto" class="row">
+        <div class="col-2">
         </div>
-        <form [formGroup]="form">
-        <div class="modal-body">
-          <section id="seccion-Proyectos">
-          <div class="container-fluid">
-        <div class="" *ngFor="let item of proyecto" class="row">
-          <div class="col-2">
-          </div>
-          <div class="col-8">
-         <img [src]="item.img" class="img-fluid w-50">
-        <p>{{item.trabajo}}</p>
-         </div>   
+        <div class="col-8">
+       <img [src]="item.img" class="img-fluid w-50">
+      <p>{{item.trabajo}}</p>
+       </div>   
 
-  <!--lapicito rojo que se cambia al tocarlo-->
-  <button type="button" class="btn btn-sm btn-outline-warning pl-1 pr-1 m-0" (click)="cargarDetalle(item.id)">Editar
-    <i class="fa-solid fa-pen"></i>
-  </button>
+<!--lapicito rojo que se cambia al tocarlo-->
+<button type="button" class="btn btn-sm btn-outline-warning pl-1 pr-1 m-0" (click)="cargarDetalle(item.id)">Editar
+  <i class="fa-solid fa-pen"></i>
+</button>
 
-  <!--Tachico de Basura que se hace fondo rojo al tocarlo-->
-  <button type="button" class="btn btn-sm btn-outline-danger pl-1 pr-1 m-0" (click)="borrar(item.id)">Eliminar
-    <i class="fa-solid fa-trash"></i>
-  </button>
+<!--Tachico de Basura que se hace fondo rojo al tocarlo-->
+<button type="button" class="btn btn-sm btn-outline-danger pl-1 pr-1 m-0" (click)="borrar(item.id)">Eliminar
+  <i class="fa-solid fa-trash"></i>
+</button>
 
 </div>
 </div> 
@@ -54,12 +54,13 @@
 <div class="modal-footer">
 <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal" (click)="form.reset">Reset</button> 
 <button type="button" class="btn btn-primary" (click)="guardar()">Guardar</button> 
-    </div>
-   </div>
-  </form>
   </div>
-   </div>
-  </div>
-     
-    <!--fin de proyectos modal-->
-    
+ </div>
+</form>
+</div>
+ </div>
+</div>
+   
+  <!--fin de proyectos modal-->
+  
+
