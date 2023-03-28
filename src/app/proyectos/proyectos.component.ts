@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Proyectos } from '../entidades/proyectos';
+import { ProyectoService } from '../servicios/proyecto.service';
+import { Proyecto } from '../entidades/proyecto';
+
+
 
 @Component({
   selector: 'app-proyectos',
@@ -7,12 +10,7 @@ import { Proyectos } from '../entidades/proyectos';
   styleUrls: ['./proyectos.component.css']
 })
 export class ProyectosComponent implements OnInit {
-  proyectos: Proyectos[]=[];
-  
-  form: any;
-  img: any;
-  trabajo: any;
-//inicializar variables de instancia 
+  //inicializar variables de instancia 
 
 
 
@@ -25,7 +23,5 @@ export class ProyectosComponent implements OnInit {
   
   
   }
-  
-
     
 

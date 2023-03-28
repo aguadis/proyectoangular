@@ -37,18 +37,18 @@
     <input class="form-control outline-none border-0 bg-transparent" type="text" readonly formControlName="id">
   </div>
         <!--colocar textos,imput,botones,formularios para este espacio-->
-          <div class="mb-3">
+          <div>
             <label for="trabajo"><strong>Trabajo</strong></label>
             <input type="text" name="" class="form-control" id="trabajo" formControlName="trabajo">
             <input type="hidden" name="" id="id">
           </div>
 
-          <div class="mb-3">
+          <div>
             <label for="inicio"><strong>Inicio</strong></label>
             <input type="text" name="" class="form-control" id="inicio" formControlName="inicio">
           </div>
 
-          <div class="mb-3">
+          <div>
             <label for="puesto"><strong>Puesto</strong></label>
             <input type="text" name="" class="form-control" id="puesto" formControlName="puesto">
           </div>
@@ -60,7 +60,7 @@
           </div>
 
               <div class="modal-footer">
-                <button class="btn btn-secondary" (click)="form.reset()">Reset</button>
+                <button type="submit" class="btn btn-secondary" (click)="form.reset()">Reset</button>
                 <button type="button" class="btn btn-primary" (click)="guardar()" >Guardar</button>
               </div>
           </div>

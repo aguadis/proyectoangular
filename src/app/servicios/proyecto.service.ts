@@ -1,3 +1,4 @@
+
 //esto es para poder hacer peticiones
 import { HttpClient } from '@angular/common/http';
 import { Proyecto } from '../entidades/proyecto';
@@ -7,12 +8,10 @@ import { Observable } from 'rxjs';
 
 
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class ProyectoService {
-  
   url = 'https://portfolio-cintia-necol.onrender.com/proyecto';
   http: any;
   
@@ -45,3 +44,9 @@ export class ProyectoService {
     }
 }
 
+
+
+
+  
+  
+  

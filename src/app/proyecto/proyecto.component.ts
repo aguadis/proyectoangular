@@ -8,6 +8,8 @@ import { Proyecto } from '../entidades/proyecto';
   styleUrls: ['./proyecto.component.css']
 })
 export class ProyectoComponent implements OnInit {
+ 
+
   
   proyecto: any=[]; //se llama al modelo que es un array
   
@@ -34,6 +36,10 @@ export class ProyectoComponent implements OnInit {
     }
   
         
+
+
+
+  
     
   
     

@@ -58,6 +58,7 @@ export class ModalProyectosComponent implements OnInit {
     });
     console.log("Proyecto cargado correctamente");
   }
+  
  guardar() {
     let proyecto = this.form.value;
     if (proyecto.id == '') {

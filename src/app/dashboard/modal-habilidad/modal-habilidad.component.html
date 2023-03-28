@@ -36,24 +36,24 @@
     <input class="form-control outline-none border-0 bg-transparent" type="text" readonly formControlName="id">
   </div>
   <!--colocar textos,imput,botones,formularios para este espacio-->
-          <div class="mb-3" > 
+          <div> 
             <label for="habilidad"><strong>Escribir Habilidad</strong></label>
             <input type="text" name="" class="form-control" id="habilidad" formControlName="habilidad">
             <input type="hidden" name="" id="id">
           </div>
 
-          <div class="mb-3">
+          <div>
             <label for="porcentaje"><strong>Porcentaje</strong></label>
             <input type="text" name="" class="form-control" id="porcentaje" formControlName="porcentaje">
           </div>
 
-          <div class="mb-3">
+          <div>
             <label for="color"><strong>Color</strong></label>
             <input type="text" name="" class="form-control" id="color" formControlName="color">
           </div>
           
           <div class="modal-footer">
-            <button class="btn btn-secondary" (click)="form.reset()">Reset</button>
+            <button type="submit" class="btn btn-secondary" (click)="form.reset()">Reset</button>
             <button type="button" class="btn btn-primary" (click)="guardar()" >Guardar</button>
           </div>
           </div>

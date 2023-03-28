@@ -1,5 +1,5 @@
-
 import { Injectable } from '@angular/core';
+
 
 
 
@@ -8,6 +8,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ProyectosService {
+
   sProyectos: any;
   getById: any;
   list: any;
@@ -21,3 +22,5 @@ export class ProyectosService {
   
 }
 
+
+  

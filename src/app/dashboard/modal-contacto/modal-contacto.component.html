@@ -9,7 +9,7 @@
         <form [formGroup]="form">
         <div class="modal-body">
          <!--colocar textos,imput,botones,formularios para este espacio-->
-         <section id="seccion_Contacto" >
+         <section id="seccion-Contacto" >
           <div class="container fluid">
            
             <div class="" *ngFor="let item of contacto" class="row" >
@@ -17,7 +17,7 @@
               </div>
               <div class="col-8">
               <h6><strong>{{item.titulo}}</strong></h6>
-              <h1>{{item.frase}}</h1>
+              <h6>{{item.frase}}</h6>
               <img [src]="item.img" class="img-fluid w-50">
               <h6>{{item.correo}}</h6>
               <h6>{{item.telefono}}</h6>
@@ -71,7 +71,7 @@
 
 <div class="modal-footer">
   <button type="submit" class="btn btn-secondary" data-bs-dismiss="modal" (click)="form.reset">Reset</button> 
-          <button type="button" class="btn btn-primary" (click)="guardar()">Guardar</button> 
+  <button type="button" class="btn btn-primary" (click)="guardar()">Guardar</button> 
 </div>
 </div>
 </form>

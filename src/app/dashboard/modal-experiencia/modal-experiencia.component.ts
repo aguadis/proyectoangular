@@ -56,11 +56,12 @@ export class ModalExperienciaComponent implements OnInit {
           console.error(e)
           alert("error al modificar")
         },
-        complete: () => console.info('complete aqui')
-      }
-    )
-  }
-  //👇 esto es solo para hacer pruebas en local
+        complete: ()=> console.info('complete')
+      });
+      console.log("Experiencia cargada correctamente");
+    }
+  
+    //👇 esto es solo para hacer pruebas en local
   
   
   guardar() {
