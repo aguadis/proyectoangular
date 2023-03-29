@@ -19,7 +19,9 @@ export class LoginComponent implements OnInit {
   email = '';
   password = '';
   
-  persona: Persona = new Persona("", "", "", "", "", "", "", "");
+
+  persona: Persona = new Persona("", "", "", "", "", "","","");
+  get: any;
 
   //Inyectar en el constructor el formBuilder
   constructor(private formBuilder: FormBuilder, private autenticarService: AutenticacionService, private ruta: Router) {
